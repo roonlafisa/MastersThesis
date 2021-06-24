@@ -1,0 +1,591 @@
+% Chapter 3
+\chapter{Broad Band Fixed-beam Leaky Wave Antenna} % Main chapter title
+\label{Chapter3} 
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\chead{\rightmark}
+
+The leaky-wave antenna presented in this thesis consists of two components: a slot-line array to generate the leaky-wave radiation and a rectangular graded dielectric superstrate placed on top of it. The superstate receives the generated leaky-wave radiation from the underlying slot array and couples it to free-space. The inhomogeneous distribution of permittivity inside the superstrate guides the wave to produce refraction at the upper interface at a specific angle. The geometric compensation technique presented in Sec. \ref{sec:geocomp} is employed in this chapter to design the rectangular slab. The chapter begins by describing the context of the fixed-beam radiation for the slot-array and proceeds to describe the design procedure. It is demonstrated that the geometric compensation technique decidedly improves the radiation characteristics of the antenna. A few variations of the proposed design are also presented in the final section of this chapter. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Design principle}
+The design of the proposed leaky-wave antenna is influenced by the analysis of an infinitely long and optically narrow slot-line located at the interface between two different dielectric media \cite{Neto2003}\cite{Maci2004}. The radiation mechanism from such slot-lines is demonstrated in section \ref{SLLWA}. Figure \ref{fig:coupling}a is a similar illustration, showing a slot aperture extending in the positive $x$ direction and etched on a metallic ground plane in the $xy$ plane. A dielectric slab with a dielectric permittivity $\epsilon_r$ is located on top of the slot-line while the region underneath is free-space. If the slot aperture is transversely excited with a current element, a leaky-wave mode will propagate longitudinally in the direction of $x$ axis and continuously generate leaky-wave radiation into the dielectric slab. However, the generated leaky-wave radiation remains confined inside the superstrate due to total internal reflection at the air-dielectric interface, as illustrated by the ray-diagram in Fig. \ref{fig:coupling}a. 
+%
+\begin{figure} [t!]
+\centering
+\noindent
+\hspace*{\fill}%
+  \mbox{\subfloat[]
+        {\begin{overpic}[scale=0.35]{Figures/Chapter3/fig_coupling/metaprism_1}
+			\put(22,43){\footnotesize Uniform dielectric}
+		\end{overpic}}}
+	\hfill%
+	\mbox{\subfloat[]
+        {\begin{overpic}[scale=0.35]{Figures/Chapter3/fig_coupling/metaprism_2}
+			\put(35,35){\footnotesize Uniform}
+			\put(35,28){\footnotesize dielectric}
+			\put(72,83){\footnotesize $\theta_{\mathrm{rad}}$}
+		\end{overpic}}}
+		\hspace*{\fill}%
+		
+	\mbox{\subfloat[]
+        {\begin{overpic}[scale=0.35]{Figures/Chapter3/fig_coupling/metaprism_3}
+			\put(42,62){\footnotesize $\theta_{\mathrm{rad}}$}
+			\put(38,27){\footnotesize Graded index}
+			\put(38,20){\footnotesize dielectric}	
+			\put(-40,40){\vector(2,0){25}}
+			\put(-40,40){\vector(0,2){25}}
+			\put(-40,40){\vector(2,0){25}}
+			\put(-40,40){\vector(3,2){20}}
+			\put(-13,40){\footnotesize $x$}
+			\put(-42,69){\footnotesize $y$}
+			\put(-17,53){\footnotesize $z$}
+			\put(130,40){\vector(2,0){25}}
+			\put(130,40){\vector(0,2){25}}
+			\put(130,40){\vector(2,0){25}}
+			\put(130,40){\vector(3,2){20}}
+			\put(157,40){\footnotesize $H_x$}
+			\put(132,69){\footnotesize $H_y$}
+			\put(151,53){\footnotesize $E_z$}
+	\end{overpic}}}
+  
+  \caption[A diagram showing how a slot emitted leaky-wave radiation from a corner-fed slot-line leaky-wave antenna array remains trapped inside the uniform dielectric superstrate. A convex dielectric domain couples the generated radiation into free-space. The same phenomenon can be implemented with a rectangular graded-dielectric superstrate. ]{The slot emitted leaky-wave radiation from a corner-fed slot-line leaky-wave antenna array remains trapped inside the uniform dielectric superstrate (a). The phase-mismatch at the interface is reduced at a uniform dielectric convex layer which couples the generated radiation (b). The same phenomenon can be implemented with a rectangular graded-dielectric layer (c).  }
+\label{fig:coupling}
+\end{figure}
+%
+The incident angle (measured from broadside) of the leaky-wave at the upper interface of the uniform dielectric slab needs to be reduced in order to be coupled into free-space. This could be achieved by replacing the rectangular slab with a convex dielectric superstrate to couple the radiation into free-space through its curved upper interface, as shown in Fig. \ref{fig:coupling}b. The leaky-wave antenna reported in \cite{Neto2005} functioned with similar configuration. Here we seek to reduce the profile of the antenna and enable radiation in directions other than broadside.
+
+Using transformation electromagnetics, the convex dielectric superstrate shown in Fig. \ref{fig:coupling}b is reshaped into an inhomogeneous rectangular one as shown Fig. \ref{fig:coupling}c. In contrast to the curved upper interface of the uniform dielectric medium in Fig. \ref{fig:coupling}b, the air-interface of the rectangular superstrate in Fig. \ref{fig:coupling}c is parallel to the slot-line. The inhomogeneous superstrate mimics the uniform dielectric hemisphere in Fig. \ref{fig:coupling}a and bends the slot-generated radiation to reduce its inident angle at the interface. The phase-profile of the wave along the upper interface of the superstrate determines the radiation angle of the leaky-wave antenna. The design process of the antenna involves obtaining the dimensions and permittivity distribution of the superstrate through transformation electromagnetics. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Design considerations} 
+The leaky-wave antenna presented in this thesis consists of a slot-line array with a rectangular superstrate placed on top of it, as demonstrated in Fig. \ref{fig:coupling}c. The graded index dielectric superstate receives the generated leaky wave radiation from underlying the slot array and couple into free-space. The design of the antenna was conducted with an infinite slot array. The superstrate was consequently considered infinitely stretched in the direction transverse to the slot length, which aided saving computational resources by reducing the overall simulation domain.
+
+The essential parameters considered for designing the leaky-wave antenna are:
+
+\begin{itemize}
+    \item The radiation angle: The fixed-beam leaky-wave antenna proposed by Neto \textit{et al.} was limited to broadside radiation \cite{Neto2005}\cite{Bruni2007}. The primary design criterion for the leaky-wave antenna is to produce a main beam at an oblique direction. The design procedure and simulation results presented in this chapter aims for a fixed radiation angle $\theta_{\mathrm{rad}} = 30^\circ$ from broadside. %This radiation angle was chosen to distinct the primary beam from the secondary lobes over the desired bandwidth. That being said, this angle can be chosen arbitrarily by the designer.
+    
+    \item Constituent material: The superstrate of the leaky-wave antenna consists of non-magnetic graded dielectric index material. The permittivity ($\epsilon$) of the slab is spatially distributed with unity permeability ($\mu$) value. The permittivity variation of the slab is two-dimensional with no variation in the direction transverse (the $z$ direction) to the slot-line. The superstrate was designed such that the value of relative permittivity ranges from 1 to 9. A maximum relative permittivity value of 9 was specifically chosen to limit the $\epsilon_r$ values to those of commonly available dielectrics. A maximum value of relative permittivity of 9 limits the refractive index value to 3. The minimum relative permittivity value was chosen to be unity because a relative permittivity below one would require artificial dielectrics which are either narrowband or require active elements. For instance, the antenna proposed by Sievenpiper consists of a dielectric substrate with relative permittivity below unity \cite{Sievenpiper2011}. However, the design utilizes active non-foster circuits to achieve fixed-beam radiation from the antenna. The design process of the antenna presented in this thesis was limited to passive devices only.
+    
+    \item Length of the antenna: In order to keep the antenna structure from being bulky, the length of the superstrate as well as the slot array was initially specified to be $L = 6 \lambda_0$, where $\lambda_0$ is the free-space wavelength. An antenna of such dimension is electromagnetically large for general applications. However, leaky-wave antennas are typically electromagnetically much long, typically around 10-12 wavelengths. It will be shown later that the desired antenna performance can be achieved from a length $L = 4.2 \lambda_0$, which is smaller than previous designs proposed by Neto \textit{et al.} and Sievenpiper.
+    
+    \item Frequency bandwidth: The objective was to achieve a percentage bandwidth over 100\%. While operating over a broad band, the antenna as well as the slot array becomes electrically smaller with the decrease of frequency. At lower frequencies, the leaky wave mode in the slot fails to radiate sufficient energy due to reduced length for propagation. This introduces reflections inside the slot that creates longitudinal reflections and interference inside the slot. As a result, the far-field radiation at lower frequencies contains higher sidelobe and wider beam at lower frequencies, as will be shown in later in section \ref{simres}. One way to get around this problem is to terminate the slot with a matched load so that the reflected waves do not interfere with the leaky-wave mode. In contrast to operation at lower frequencies, at higher frequencies, the antenna demonstrates improved performance in terms of sidelobe level and directivity because the antenna becomes electrically longer. We consider $2f_0$ for the upper frequency limit of the antenna, which leads to a length of $12 \lambda$ at the maximum frequency. The final design was simulated to have a fractional bandwidth of 5:1 where the sidelobe level remained below $30\%$ and the directivity was above 11.
+\end{itemize}
+
+\begin{figure}
+\centering
+ 	\begin{overpic}[scale=0.7]{Figures/Chapter3/fig_structure/structure}
+ 	
+ 	        \put(-14,72){\footnotesize $2.9 \lambda_0$}
+			\put(78,76){\footnotesize $4.2 \lambda_0$}
+			\put(84,-5){\footnotesize $0.1 \lambda_0$}
+			\put(57,-5){\footnotesize $0.02 \lambda_0$}
+			\put(0,15){\footnotesize $v$}
+			\put(7,28){\footnotesize $u$}
+			\put(18,33){\footnotesize $z$}
+
+  \end{overpic}
+
+  \caption[The structure and physical dimensions of the simulated antenna.]{The structure and physical dimensions of the simulated antenna. All lengths are represented in terms of free-space wavelength $\lambda_0$ where frequency is $c$. The yellow substrate represents an inhomogeneous dielectric slab.}
+\label{fig:structure}
+\end{figure}
+
+Hence the primary design criterion for the leaky-wave antenna was to produce a main beam at a fixed angle $\theta_{\mathrm{rad}} = 30^\circ$ over a wide-frequency range from $0.5f_0$ to $2f_0$. The designed antenna structure as well as the dimensions obtained through transformation electromagnetics is presented in Fig. \ref{fig:structure}. The slot width of the infinite slot array was specified to be $0.02 \lambda_0$ with an array spacing of $0.1 \lambda_0$. As will be shown, the antenna length and height was $4.2 \lambda_0$ and $2.9 \lambda_0$, respectively. 
+
+
+%\section{Validation of Simulations}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\label{App:NFTFF} describes validation process of the near field to far field process. 
+
+\section{Design of the superstrate} \label{sec:design}
+The rectangular superstrate of the leaky-wave antenna is designed using transformation optics along with the geometric compensation technique demonstrated in section \ref{sec:geocomp}. According to the technique, the rectangular shape of the superstrate is considered in the target domain. The graded permittivity distribution inside the superstrate is achieved through a two-step numerical conformal transformation process. 
+
+\begin{figure} [t!]
+\centering
+  \noindent
+\hspace*{1.5cm}
+\mbox{\subfloat[]{
+	\begin{overpic}[scale=0.4]{Figures/Chapter2/fig_simulation_domain/domain_corner}
+			\put(42,18){\footnotesize L=6$\lambda$}
+			\put(50,46){\footnotesize air}
+			\put(50,73){\footnotesize dielectric}
+			\put(-8,28){\footnotesize PEC}
+	%		\put(-10,42){\footnotesize \fbox{PML}}
+			\put(-16,39){\footnotesize Excitation}
+			\put(08,90){\vector(-2,0){15}}
+			\put(08,90){\vector(0,2){15}}
+			\put(08,90){\vector(-2,0){15}}
+			\put(08,90){\vector(3,4){8}}
+			\put(-10,90){\footnotesize $y$}
+			\put(5,105){\footnotesize $z$}
+			\put(15,102){\footnotesize $x$}
+	
+  \end{overpic}}}
+  \hspace*{1.5cm}%
+    \mbox{\subfloat[]{
+  
+  	\begin{overpic}[scale=0.4]{Figures/Chapter2/fig_simulation_domain/domain2D}
+        \put(50,87){\footnotesize L}
+        \put(35,43){\footnotesize dielectric}
+         \put(42,18){\footnotesize air}
+  \end{overpic}}}
+ \hspace*{2cm}% 
+ 
+
+  \caption[Simulation setup for the analysis of the proposed leaky-wave antenna.]{Simulation setup for the analysis of the proposed leaky-wave antenna. Half of a unit cell is simulated with the PEC boundary conditions that extending the structure infinitely in the $z$ direction. The dashed region represents PML absorbing layer while the solid region is the actual simulation domain.}
+\label{fig:simdomain2}
+\end{figure}
+
+\begin{figure} [t!]
+\centering
+  \noindent
+  %
+  \hspace*{\fill}%
+ \mbox{\subfloat[]{
+    	\begin{overpic}[trim={4cm -.6cm .6cm 1.2cm},clip,scale=0.3]{Figures/Chapter2/fig_simulation_domain/Ez1}
+    			\put(70,0){\vector(2,0){10}}
+    			\put(70,0){\vector(0,2){10}}
+    			\put(80,01){\footnotesize $x$}
+    			\put(70,11.5){\footnotesize $y$}
+    			\put(68.5,-1.5){\footnotesize $\otimes$}
+    			\put(66.5,-5){\footnotesize $z$}
+    				\put(-4,47){\footnotesize \rotatebox{90}{$y (\lambda_0)$}}
+    				\put(30,0){\footnotesize {$x (\lambda_0)$}}
+    			
+    			\linethickness{.7mm}
+    			\put(15,90){\line(2,0){9}}
+    			\put(16.5,92){\footnotesize $\lambda_0$}
+    	
+  \end{overpic}}}
+  %
+  %
+   \mbox{\subfloat[]{
+   	\begin{overpic}[trim={0cm 0cm .1cm 1cm},clip,scale=0.42, keepaspectratio=true]{Figures/Chapter2/fig_simulation_domain/Ez2}
+  \end{overpic}}}
+  \hspace*{\fill}%
+  
+  \hspace*{\fill}%
+     \mbox{\subfloat[]{
+   	\begin{overpic}[scale=0.5]{Figures/Chapter2/fig_simulation_domain/Ez3.png}
+  \end{overpic}}}
+  \hspace*{\fill}%
+  %
+  \caption[Fields produced in a uniform dielectric half-space that are used to determine the source domain geometry.]{(color inline) The fields produced in the structure demonstrated in Fig. \ref{fig:simdomain2} (a). The unwrapped phase (degrees) of the fields are plotted and used to determine the source domain geometry for the transformation optics procees. The blue lines correspond to the upper interface that corresponds to the phase profile being linear (b). The linear phase profile along the upper interface (c).}
+\label{fig:simdomain2b}
+\end{figure}
+
+In the first step, an initial hypothetical geometry in the source domain is obtained through the technique shown in \ref{detsourcedom}. Using Eq. \ref{eq:lingrad}, a linear phase gradient is obtained which is a function of the radiation angle $\theta_{\mathrm{rad}}$ from broadside in the target domain. The achieved phase gradient is used to crop a shape out of a uniform dielectric half-space having a relative permittivity $\epsilon_r = 2$ is placed on top of a thin slot array. The scenario is simulated in COMSOL multiphysics. Figure \ref{fig:simdomain2} presents the simulation setup. An infinite array of slot-line etched on a ground plane placed at the interface of air and a dielectric was simulated using PEC/PMC symmetry planes and PML layers to mimic an infinite array located at the interface of two infinitely stretched half spaces. The solid lines represent the actual region of consideration while the dotted lines show the PML absorbing layers. They grey surface portrays the ground plane that holds a slot-line extended in the positive $\pm x$ direction. The slot-line is excited at the corner with a current source transverse to the length. The ground plane and the slot extends into the PML layer in the positive $\pm x$ direction. The PML layer absorbs the propagating leaky-wave mode in the slot-line and prevents reflections from boundary \cite{chew1995}. Standing waves originated from the reflected fields would cause error in determination of the source domain geometry.  In the negative $x$ direction there is an air gap between the PML boundary and round plane. The PML layer on the left of air gap infinitely extends the free-space region in in the negative $x$ direction, allowing simulation of a corner-fed leaky-wave antenna. The ground plane as well as the slot  perfect electric conductor (PEC) boundaries repeat the domain in the $\pm z$ direction, extending the structure into an infinite array \cite{sadiku2001}.
+
+\begin{figure} [t!]
+\centering
+  \noindent
+    \hspace*{\fill}%
+  \mbox{\subfloat[]{
+  \begin{overpic}[trim={0cm 0.0cm 0cm 0cm},clip,scale=0.35, keepaspectratio=true]{Figures/Chapter3/fig_transformation/phasecompensation_a}
+				\put(3,-4){\footnotesize $z$}
+				\put(10,45){\footnotesize $y$}
+				\put(107,18){\footnotesize $x$}
+				\put(53,77){\footnotesize Cut-line}
+	\end{overpic}}}
+\hspace*{\fill}%
+
+\hspace*{\fill}%
+\mbox{\subfloat[]{
+  \begin{overpic}[trim={0cm 0.0cm 0cm 0cm},clip,scale=0.25, keepaspectratio=true]{Figures/Chapter3/fig_transformation/initial_source.png}
+				\put(-4,53){\footnotesize $A$}
+				\put(96,22){\footnotesize $B$}
+				\put(-4,-5){\footnotesize $C$}
+				\put(96,-6){\footnotesize $D$}
+				\put(-10,-10){\vector(2,0){20}}
+				\put(-10,-10){\vector(0,2){20}}
+				\put(12,-12){\footnotesize $x$}
+				\put(-12,15){\footnotesize $y$}
+	\end{overpic}}}
+\hspace*{\fill}%
+  \mbox{\subfloat[]{
+  \begin{overpic}[trim={0cm 0.2cm 0cm 0cm},clip,scale=0.25, keepaspectratio=true]{Figures/Chapter3/fig_transformation/initial_target.png}
+				\put(-3,37){\footnotesize $a$}
+				\put(97,37){\footnotesize $b$}
+				\put(-3,0){\footnotesize $c$}
+				\put(97,0){\footnotesize $d$}
+				\put(-10,-10){\vector(2,0){20}}
+				\put(-10,-10){\vector(0,2){20}}
+				\put(12,-12){\footnotesize $u$}
+				\put(-12,14){\footnotesize $v$}
+				\put(7,47){\vector(2,0){88}}
+				\put(95,47){\vector(-2,0){90}}
+				\put(43.5,50){\footnotesize $L$}
+				\put(105,0){\vector(0,2){42}}
+				\put(105,42){\vector(0,-2){42}}
+				\put(107,20){\footnotesize $H$}
+	\end{overpic}}}
+	  \hspace*{\fill}%
+  \caption[Conformal transformation of the initial geometry into a rectangular domain.]{The initial geometry (a) that leads to a linear phase profile in the source domain. The conformal mapping from initial homogeneous source domain (b) to initial graded dielectric target domain (c).}
+\label{fig:Geocomp}
+\end{figure}
+
+The transverse current source excitation of the slot-line generates a leaky-wave mode propagate in $x$ direction and radiates primarily into the upper dielectric half-space. Generated waves form a phase distribution in the dielectric half-space. The fields originated from the structure and the corresponding unwrapped phase are presented in Fig. \ref{fig:simdomain2b}a and \ref{fig:simdomain2b}b. The source domain geometry for the geometric compensation technique is selected using linear variation of phase with space. The electric field transverse to the length of the slot is considered to find the phase gradient from the dielectric half-space. The blue lines in Fig. \ref{fig:simdomain2b}b represent the upper interface that is selected using the linear phase profile in Fig. \ref{fig:simdomain2b}c. The upper interface of the source domain geometry designed with the intention of creating a linear phase profile, corresponding to a fixed radiation $\theta_{\mathrm{rad}}$ from broadside. Figure \ref{fig:Geocomp}a presents the geometry in the source domain which is determined for a radiation angle of $\theta_{\mathrm{rad}} = 30^\circ$. The overall design is carried out for a two-dimensional conformal transformation. Therefore, region under the upper interface (blue line) can be infinitely stretched in the $\pm z$ direction to find the domain in Fig. \ref{fig:Geocomp}a. The geometry with an infinite slot array at the bottom interface is presented in Fig. \ref{fig:Geocomp}a. The linear phase gradient along the upper interface of the geometry can be observed along a cut-line in the upper interface. 
+
+For the two-dimensional conformal transformation, the geometries in figures \ref{fig:Geocomp}b and \ref{fig:Geocomp}c are considered. The shape $ABCD$ in \ref{fig:Geocomp}b is a portion of the uniform dielectric in the $xy$ plane along the cut-line indicating in Fig. \ref{fig:Geocomp}a. Using the description in section \ref{detsourcedom}, the geometry $ABCD$ is numerically mapped into a rectangle $abcd$ in $(u,v)$ domain presented in Fig. \ref{fig:Geocomp}c. The initial curved upper boundary is generated by setting the phase gradient along the curve equal to a constant. The constant is a function of the radiation angle from $ab$ in the target domain. The length of the target domain was specified to be $L = 6 \lambda_0$. Its height $H$, limited by the conformal module was $2.9 \lambda_0$. The permittivity distribution inside the rectangular medium is obtained from the transformation process. If the inhomogeneous rectangular superstrate is placed on top of the slot array used in the initial transformation process, generated leaky-wave radiation couples into free-space. The radiation angle depends on the phase-gradient along the upper interface $ab$. Due to the change of length of the upper boundary ($AB$ to $ab$), the phase gradient along $ab$ deviates from the expected linear profile. Figure \ref{fig:phaseini} presents the phase gradient along the radiating interface $ab$ in the target domain, which is clearly non-linear with repect to an ideal linear phase-profile. The non-linearity in phase profile along the interface leads unsatisfactory radiation patterns where the primary lobe deviates from the desired $30^\circ$ radiation angle and radiated power is significantly distributed in the side and back lobes. The linear radiation patterns from the structure are shown in Fig. \ref{fig:cornergeneral_uncomp} for a frequency range of $.5f_0$ to $2f_0$. The plot shows that although the the structure has been designed from a source domain for $30^\circ$ radiation, the primary beam deviates from the angle over the frequency range. 
+
+\begin{figure} [t]
+\pgfplotsset{compat=1.5,
+scale=.9,
+tick label style={font=\small},
+label style={font=\small},
+legend style={font=\small},
+% tick style={thick}
+}
+  \begin{center}
+ \input{Figures/Chapter3/fig_smallercorner_polar/fig_polar_general_uncomp.tex}
+ \end{center}
+  \caption[Radiation patterns of the uncompensated leaky-wave antenna at different frequencies.]{(color inline) Radiation patterns (linear) of the uncompensated leaky-wave antenna at different frequencies. The six radiation patterns are for $0.5f_0$-$2f_0$, where $f_0=c$. Higher gain patters represents higher frequencies.}
+\label{fig:cornergeneral_uncomp}
+\end{figure}
+%
+\begin{figure} [t]
+\pgfplotsset{compat=1.5,
+width=7.5cm,
+height=4.64cm,
+tick label style={font=\small},
+label style={font=\small},
+legend style={font=\small},
+% tick style={thick}
+}
+  \begin{center}
+ \input{Figures/Chapter3/fig_phase/fig_phase_ini.tex}
+ \end{center}
+  \caption[Unwrapped phase profiles along the upper boundary of the uncompensated geometry in the target domain.]{Unwrapped phase profiles along the upper boundary of the initially transformed geometry. The dashed blue line presents the ideal linear phase gradient required.}
+\label{fig:phaseini}
+\end{figure}
+
+In order to achieve a solid fixed-beam performance, the phase gradient along the upper interface of the superstrate needs to be precisely linear. In order to fix the discrepancies in the phase gradient, conformal transformation is required to be carried out. Using Eq. \ref{eq:comp}, a modified source domain is selected that leads to a different target domain medium. As described in the previous chapter, the modified geometry is selected from the unwrapped phase of the fields radiated into a uniform dielectric half-space. The red line in Fig. \ref{fig:phase}a presents upper interface of the compensated geometry, while the blue line is the initially selected interface (Fig. \ref{fig:simdomain2b}). 
+
+The modified geometry with the slot array is presented in Fig. \ref{fig:LWAcompensation}a. A slice of the modified source domain along a cut-line is presented by geometry $A'B'C'D'$ in Fig. \ref{fig:LWAcompensation}b. The shape is mapped to the rectangular geometry $a'b'c'd'$ in Fig. \ref{fig:LWAcompensation}c through a two-dimensional conformal transformation. The geometry $a'b'c'd'$ is eventually used as the superstrate of the leaky-wave antenna superstrate. The domain has the same length $L$ as compared to the uncompensated one, however, has a height $H' = 2.9 \lambda_0$. 
+
+
+
+
+%and presented in Fig. \ref{fig:LWAcompensation}a. The phase gradient along a cut line along the upper interface is not linear. However, the corresponding target domain has a linear phase profile along its upper interface.
+\begin{figure} [t]
+\centering
+  \noindent
+    \hspace*{\fill}%
+\pgfplotsset{compat=1.5,
+width=7cm,
+height=6cm,
+tick label style={font=\small},
+label style={font=\small},
+legend style={font=\small},
+% tick style={thick}
+}
+\hspace*{\fill}%
+  \mbox{\subfloat[]{
+  \begin{overpic}[trim={4cm -.3cm 2.5cm 0cm},clip,scale=0.65, keepaspectratio=true]{Figures/Chapter3/fig_phase/Ez21_tricked}
+  	\put(-4,52){\footnotesize \rotatebox{90}{$y (\lambda_0)$}}
+  	\put(30,3){\footnotesize {$x (\lambda_0)$}}
+		\end{overpic}}}
+\hspace*{\fill}%    
+  \mbox{\subfloat[]{
+ \input{Figures/Chapter3/fig_phase/fig_phase.tex} }}
+     \hspace*{\fill}%
+  \caption[Compensating the source domain geometry using the corrected phase-profile.] {(color inline) Determining the compensated geometry from the surface plot of phase (degrees) corresponding to the fields in an uniform dielectric half-space(a). Unwrapped phase profiles along the upper boundaries of the initial and compensated geometry (b).}
+\label{fig:phase}
+\end{figure}
+
+The blue curve in Fig. \ref{fig:phase}a demonstrates how the phase profile along the upper boundary $ab$ is more linear as compared to the initial design. The plot illustrates how the linearity in phase-profile along the radiating interface improves after applying the geometric compensation technique. As will be shown in section \ref{simres}, the geometrically compensated target domain $a'b'c'd'$ demonstrates improved antenna perforamnce as cormpared to the initially designed medium $abcd$.
+\begin{figure} [t!]
+\centering
+  \noindent
+    \hspace*{\fill}%
+ \mbox{\subfloat[]{
+  \begin{overpic}[trim={0cm 0.0cm 0cm 0cm},clip,scale=0.30, keepaspectratio=true]{Figures/Chapter3/fig_transformation/phasecompensation_b}
+			
+				\put(3,-4){\footnotesize $w$}
+				\put(10,45){\footnotesize $v$}
+				\put(105,13){\footnotesize $u$}
+				\put(53,77){\footnotesize Cut-line}
+	\end{overpic}}}
+\hspace*{\fill}%
+
+\hspace*{\fill}%
+	\noindent
+	\mbox{\subfloat[]{
+  \begin{overpic}[trim={0cm 0.0cm 0cm 0cm},clip,scale=0.25, keepaspectratio=true]{Figures/Chapter3/fig_transformation/compensated_source.png}
+				\put(-4,50){\footnotesize $A'$}
+				\put(94,20){\footnotesize $B'$}
+				\put(-4,-2){\footnotesize $C'$}
+				\put(94,-2){\footnotesize $D'$}
+				\put(-10,-10){\vector(2,0){20}}
+				\put(-10,-10){\vector(0,2){20}}
+				\put(12,-12){\footnotesize $x$}
+				\put(-12,14){\footnotesize $y$}
+	\end{overpic}}}
+\hspace*{\fill}%
+  \mbox{\subfloat[]{
+  \begin{overpic}[trim={0cm 1.8cm 0cm 0cm},clip,scale=0.25, keepaspectratio=true]{Figures/Chapter3/fig_transformation/compensated_target.png}
+			    \put(-2,30){\footnotesize $a'$}
+				\put(93,30){\footnotesize $b'$}
+				\put(-2,0){\footnotesize $c'$}
+				\put(93,0){\footnotesize $d'$}
+				\put(-10,-10){\vector(2,0){20}}
+				\put(-10,-10){\vector(0,2){20}}
+				\put(12,-12){\footnotesize $u$}
+				\put(-12,14){\footnotesize $v$}
+				\put(9,42){\vector(2,0){81}}
+				\put(87,42){\vector(-2,0){81}}
+				\put(46,45){\footnotesize $L$}
+				\put(105,2){\vector(0,2){33}}
+				\put(105,35){\vector(0,-2){33}}
+				\put(107,17.5){\footnotesize $H'$}
+	\end{overpic}}}
+	  \hspace*{\fill}%
+  \caption[The compensated source domain geometry and its transformation to rectangular target domain.] {The compensated geometry (a) that leads to a linear phase profile in the target domain. The conformal mapping from geometrically-compensated homogeneous source domain (b) to geometrically compensated graded dielectric target domain (c).}
+\label{fig:LWAcompensation}
+\end{figure}
+
+
+It is observed that the relative permittivity inside the superstrate varies from 0.0790 to 8.8748, as shown in the countour plot of Fig. \ref{fig:permittivity}. Naturally occurring dielectric materials generally have a refractive index greater than unity. Media having a relative permittivity bellow unity needs to be implemented using resonant materials which are narrowband. In order to avoid resonant materials, the region with relative permittivity below 1 were approximated to be 1. The region with unity relative permittivity was distributed along the last end of the superstrate, as illustrated in Fig. \ref{fig:permittivity}. This effectively trimmed the physical length of the superstrate from $L=6 \lambda_0$ to $L=4.2 \lambda_0$, causing an drop in directivity and increase in sidelobe levels.% \textcolor{red}{do you have percentage change?}.
+\begin{figure} [t!]
+\centering
+ 	\begin{overpic}[scale=0.8]{Figures/Chapter3/fig_permittivity/corner_fed.png}
+
+  \end{overpic}
+
+  \caption[Permittivity distribution inside the geometrically compensated superstate in the target domain.]{Permittivity distribution inside the geometrically compensated superstate in the target domain.}
+\label{fig:permittivity}
+\end{figure}
+
+The fields in the target domain $a'b'c'd'$ in Fig. \ref{fig:LWAcompensation}c are re-simulated in the next section with a slot array placed at the bottom interface $c'd'$. The array is specified by a slot spacing of $\lambda_0/10$, slot width of $\lambda_0/50$, and slot length of $6\lambda_0$, where $\lambda_0$ is the free-space wavelength. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Antenna performance} \label{simres}
+The leaky-wave antenna is designed as described in section \ref{sec:design} and simulated using COMSOL Multiphysics. The simulated antenna consisted of a corner-fed infinite slot array with a graded index dielectric superstrate on top, similar to the structure shown in Fig. \ref{fig:coupling}c. The rectangular superstrate is designed through transformation optics to linearize the phase along the air-dielectric interface. 
+
+\subsection{Fixed-beam broad band performance}
+\begin{figure} [t!]
+\centering
+ 	\begin{overpic}[trim={0.5cm -0.5cm 0.5cm 1.4cm},clip,scale=0.35]{Figures/Chapter3/fig_permittivity/Ez.png}
+
+\put(1,41){\footnotesize \rotatebox{90}{$v (\lambda_0)$}}
+\put(37,0){\footnotesize {$u (\lambda_0)$}}
+  \end{overpic}
+
+  \caption[Simulated electric field of the designed fixed-beam leaky-wave antenna.]{(color inline) Simulated electric field transverse to the slot. The slot generated leaky-wave radiation bends towards the higher permittivity region and couples into free-space.}
+\label{fig:field}
+\end{figure}
+\begin{figure} [h!]
+\pgfplotsset{compat=1.5,
+scale=.9,
+tick label style={font=\small},
+label style={font=\small},
+legend style={font=\small},
+% tick style={thick}
+}
+  \begin{center}
+ \input{Figures/Chapter3/fig_smallercorner_polar/fig_polar_general.tex}
+ \end{center}
+  \caption[Radiation patterns of the compensated leaky-wave antenna at different frequencies.]{(color inline) Radiation patterns (linear) of the compensated leaky-wave antenna at different frequencies. The six radiation patterns are for $0.5f_0$-$2f_0$, where $f_0=c$. Higher gain patters represents higher frequencies.}
+\label{fig:cornergeneral}
+\end{figure}
+%
+Fig. \ref{fig:field} depicts how the fields bend inside the graded dielectric index substrate and subsequently couple into free-space. Interference of fields is visible inside the superstrate which is originated from the reflection at the air-dielectric interface. The oblique radiation of the leaky-wave is visible from the coupled waves. Figure \ref{fig:cornergeneral} illustrates linear radiation patterns of the antenna over broad bandwidth. The six curves represent the radiation patterns from $.5f_0$ to $2f_0$ ($f_0=c$). The plot shows that the structure generates a primary beam directed approximately at the same angle, at $30^\circ$ from broadside in this case. 
+
+\subsection{Improvement of radiation pattern using geometric compensation technique}
+
+\begin{figure} [t!]
+\pgfplotsset{compat=1.5,
+scale=.58,
+tick label style={font=\small},
+label style={font=\small},
+legend style={font=\small},
+% tick style={thick}
+}
+  \begin{center}
+
+ \input{Figures/Chapter3/fig_smallercorner_polar/fig_polar_1.tex}
+  \hspace*{\fill}%
+  \input{Figures/Chapter3/fig_smallercorner_polar/fig_polar_4.tex}
+
+  
+
+  \input{Figures/Chapter3/fig_smallercorner_polar/fig_polar_8.tex}
+  \hspace*{\fill}%
+  \input{Figures/Chapter3/fig_smallercorner_polar/fig_polar_10.tex}
+
+  
+
+  \input{Figures/Chapter3/fig_smallercorner_polar/fig_polar_12.tex}
+  \hspace*{\fill}%
+  \input{Figures/Chapter3/fig_smallercorner_polar/fig_polar_16.tex}
+
+ \end{center}
+  \caption[Normalized radiation patterns for the initial and compensated (blue) corner-fed leaky-wave antenna at particular frequencies.]{(color inline) Normalized radiation patterns for the initial (red) and compensated (blue) leaky-wave antenna at different frequencies.}
+\label{fig:cornerpolar}
+\end{figure}
+%
+\begin{figure} [t!]
+	\pgfplotsset{compat=1.5,
+		width=20cm,
+		height=5.2cm,
+		scale=.8,
+		tick label style={font=\small},
+		label style={font=\small},
+		legend style={font=\small},
+		% tick style={thick}
+	}
+	\begin{center}
+		\input{Figures/Chapter3/fig_smallercorner_characterize/fig_radangle_corner.tex}
+	\end{center}
+  \caption[Characterization plots comparing the angle of radiation, sidelobe level, backlobe level, 3dB beamwidth and directivity of the corner-fed antenna over a broad bandwidth.]{(color inline) (a) Radiated beam angle, (b) 3dB beam width, (c) sidelobe level, (d) backlobe level and (e) directivity of the leaky-wave antenna for the geometrically compensated superstrate (blue) and initially designed superstrate (red). The dashed black line in (a) represents the average beam angle of $33^o$.}
+\label{fig:cornerradpattern}
+\end{figure}
+
+%
+To compare the performance of the antenna at different frequencies, normalized radiation patterns at different frequencies need to be compared. Normalized radiation patterns at different frequencies comparing the initial design and the compensated design is presented in Fig. \ref{fig:cornerpolar}. The blue and red curves presents the far-field radiation pattern for the geometrically compensated and initial design, respectively. The normalized radiation patterns illustrates how the performance of the antenna increases with the increase of frequency. At higher frequencies, the electrical antenna structure is long enough to allow the leaky-wave mode in the slot to decay. However, the antenna structure becomes electrically smaller at lower frequencies. The propagating leaky-wave mode is strong enough at the end of the structure is strong enough to cause significant standing wave components in the slot. Therefore the antenna performance degrades at lower frequencies. Regardless of higher sidelobe and backlobe levels at lower frequencies, the primary beam remains at the designed angle ($\theta_{\mathrm{rad}} = 30^\circ$ from broadside).
+
+Fig. \ref{fig:cornerradpattern} presents the parameters of the simulated leaky-wave antenna with the geometrically compensated superstrate and the initial design. Simulated radiation angle, 3dB beamwidth, percentage sidelobe level, percentage backlobe level and directivity of the antenna at different frequencies for both initial and geometrically compensated design. As illustrated in Fig. \ref{fig:cornerradpattern}a, the radiation angle for the compensated superstrate remain consistent as compared to the initial design, fluctuating around the designed $30$ degrees over the desired bandwidth. According to in Fig. \ref{fig:cornerradpattern}b, 3dB beamwidth for the compensated design is relatively less than the initial design and follows a downward trend with the increase of frequency. The sidelobe level (Fig. \ref{fig:cornerradpattern}c) and backlobe level (Fig. \ref{fig:cornerradpattern}d) graphs show the percentage sidelobe and backlobe level for the compensated design is reasonably less than that for the initial design throughout the frequency range. At the lower cut-off frequency the simulated sidelobe level and backlobe level are $37.3\%$ and $79.8\%$, respectively for the compensated superstrate while results for the same antenna parameters initial design are $46.4\%$ and $91.6\%$, respectively. The percentage sidelobe level and  backlobe level marginally decrease to $30\%$ and $46\%$for the compensated superstrate, being lower than the initial design over the frequency range. As for the directivity of the leaky-wave antenna in Fig. \ref{fig:cornerradpattern}e, it shows an upward trend with the increase of frequency for both designs. The compensated design generates more directive beam over the range of frequency, evaluated to be $4.6$ and $15$ at the lower and upper cut-off frequencies, respectively.
+
+\begin{figure} [t!]
+\centering
+  \noindent
+\hspace*{\fill}%
+	\noindent
+  \pgfplotsset{compat=1.5,
+scale=1,
+tick label style={font=\small},
+label style={font=\small},
+legend style={font=\small},
+width=6cm,
+height=3.8cm,
+% tick style={thick}
+}
+\hspace*{\fill}%
+\mbox{\subfloat[] {\input{Figures/Chapter3/fig_Zin/fig_zin.tex}}}
+\hspace*{\fill}%
+\mbox{\subfloat[] {\input{Figures/Chapter3/fig_Zin/fig_returnloss.tex}}}
+\hspace*{\fill}%
+  \caption[Input impedance and the return loss of the geometrically compensated leaky-wave antenna.]{(color inline) Real (brown) and imaginary (green) input impedance of the leaky-wave antenna with the geometrically-compensated superstrate (a). Return loss (dB) matched to the average input impedance ($Z_0$=69.367 + 73.64j Ohms)(b). }
+\label{fig:inimp}
+\end{figure}
+
+Real and imaginary part of the input impedance has been calculated using Eq. \ref{eq:eta}. The impedance as a function of frequency for the simulated leaky-wave antenna is presented in Fig. \ref{fig:inimp}a. It is observed that the input impedance is fairly consistent over the desired range of frequency, which indicates that the antenna can be fairly matched to an optimized network over the entire operating bandwidth. Figure \ref{fig:inimp}b presents the return loss of the structure when matched to the average value of the input impedance ($Z_0$=69.367 + 73.64j Ohmss).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Center-fed design with a back reflector}
+
+For certain applications, a fixed-beam antenna may be required to produce two beams instead of a single beam. The corner-fed design explained in previous section can be extended into a center-fed leaky-wave antenna. It will be later shown that at some frequencies, the backlobe level of the antenna is high. A back reflector was incorporated can the structure to eliminate the backlobes; however, the effect of the back reflector on primary beam direction, the sidelobes and directivity is unknown. 
+
+\begin{figure} [th!]
+\centering
+ 	\begin{overpic}[scale=0.5]{Figures/Chapter5/fig_double/domain} 
+ 	\put(22,60){\footnotesize Uniform dielectric}
+ 	\put(-25,43){\footnotesize Line current}
+ 	\put(-39,32){\footnotesize Ground plane (PEC)}
+ 	\put(-10,25){\footnotesize PMC}
+ 	\put(-9,20){\footnotesize PEC}
+ 	
+ 	\put(30,95){\footnotesize PML}
+ 	\put(35,4){\footnotesize PML}
+ 	\put(71,55){\footnotesize PML}
+ 	
+ 	\put(101,10){\footnotesize $x$}
+	\put(88,23){\footnotesize $y$}
+	\put(84,15){\footnotesize $z$}
+ 	\end{overpic}
+
+  \caption[Simulation domain of the center-fed leaky-wave antenna with a back-reflector.]{Simulation domain of the center-fed leaky-wave antenna with a back-reflector.}
+\label{fig:double}
+\end{figure}
+%
+\begin{figure} [t!]
+	\pgfplotsset{compat=1.5,
+		width=20cm,
+		height=5.2cm,
+		scale=.8,
+		tick label style={font=\small},
+		label style={font=\small},
+		legend style={font=\small},
+		% tick style={thick}
+	}
+	\begin{center}
+		\input{Figures/Chapter5/fig_double/fig_double.tex}
+	\end{center}
+    \caption[Characterization plots comparing the Peak field, Radiated beam angle, sidelobe level, 3dB beam width, and broadside field of the slot radiation into a two diefferent halfspaces.]{(color inline) Peak field, Radiated beam angle, sidelobe level, 3dB beam width, and broadside field of the slot radiation into a halfspace having $\epsilon_r=2$ (red) and $\epsilon_r=4$ (violet). The $x$ axis represents the distance of a ground plane from the slot plane.}
+\label{fig:char_epsilon}
+\end{figure}
+
+In order to observe the variation of the leaky-wave radiation in presence of a back reflector, a slot-line was placed under a uniform dielectric half-space with a PEC back reflector. The simulation domain is presented in Fig. \ref{fig:double}. The slot-line is positioned under a dielectric half-space (grey region). PEC and PMC symmetry places were implemented to simulated the structural periodicity of the center-fed design. The distance of the back reflector was varied from $0.5 \lambda_0$ to $1.5 \lambda_0$ to observe the radiation inside the dielectric. The peak field, angle of radiation (measure from broadside), percentage sidelobe level and beamwidth is observed and presented in Fig. \ref{fig:char_epsilon}. Two different dielectric half spaces, having relative permittivity values of $2$ and $4$, were simulated for each position of back-reflector. It is observed that the position of the back reflector less than $0.5 \lambda$ contains zero side lobes and contains decent directivity. Therefore, the back reflector is to be placed in that particular region. 
+
+\begin{figure} [t!]
+\centering
+ 	\begin{overpic}[scale=0.8]{Figures/Chapter3/fig_permittivity/center_fed.png}
+
+  \end{overpic}
+  \caption[Permittivity distribution inside the inhomogeneous superstrate used for the center-fed design.]{(color inline) Permittivity distribution inside the inhomogeneous superstrate used for the center-fed design.}
+\label{fig:eps_double}
+\end{figure}
+
+The center-fed design was simulated using COMSOL with and without a back reflector. The graded-dielectric superstrate was design using transformation optics and improved by the geometric compensation technique. Figure \ref{fig:eps_double} presents the dielectric distribution of the superstrate, designed using the geometric compensation technique. To simulated the antenna as a center-fed design with two primary beams, is extended in the positive and negative $x$ direction. In that way, the structure of the antenna doubles in size, however, two primary beams are generated from the structure. The superstrate is designed using the geometric compensation technique. A back reflector is placed at a distance $0.25 \lambda_0$ below the slot-line. Figure \ref{fig:polar} represents the normalized far-field plots of the center-fed design. The red curves present the patterns for the aced uncompensated design, while the blue and red curve shows the pattern for the geometrically compensated design without and with a back reflector, respectively. 
+%
+\begin{figure} [th!]
+\pgfplotsset{compat=1.5,
+scale=.58,
+tick label style={font=\small},
+label style={font=\small},
+legend style={font=\small},
+% tick style={thick}
+}
+  \begin{center}
+
+ \input{Figures/Chapter3/fig_smallercenter_polar/fig_polar_1.tex}
+  \hspace*{\fill}%
+  \input{Figures/Chapter3/fig_smallercenter_polar/fig_polar_4.tex}
+
+  
+
+  \input{Figures/Chapter3/fig_smallercenter_polar/fig_polar_8.tex}
+  \hspace*{\fill}%
+  \input{Figures/Chapter3/fig_smallercenter_polar/fig_polar_10.tex}
+
+  
+  
+  \input{Figures/Chapter3/fig_smallercenter_polar/fig_polar_12.tex}
+  \hspace*{\fill}%
+  \input{Figures/Chapter3/fig_smallercenter_polar/fig_polar_16.tex}
+
+  
+ \end{center}
+  \caption[Normalized radiation patterns for the initial as well as the compensated center-fed leaky-wave antenna with and without a backreflector at different frequencies.] {(color inline) Normalized radiation patterns for the initial (red) as well as the compensated center-fed leaky-wave antenna with (green) and without (blue) a backreflector at different frequencies.}
+\label{fig:polar}
+\end{figure}
+%
+%
+Fig. \ref{fig:centeradpattern} illustrates the antenna parameters of the simulated center-fed design for geometrically compensated superstrate with and without a back reflector as well as for the initial design. It can be observed that although the back reflector eliminates the backlobe of the antenna, it increases the overall sidelobe level and beam variation over the beamwidth. However, it increases the directivity of the antenna.
+
+\begin{figure} [t!]
+	\pgfplotsset{compat=1.5,
+		width=20cm,
+		height=5.2cm,
+		scale=.8,
+		tick label style={font=\small},
+		label style={font=\small},
+		legend style={font=\small},
+		% tick style={thick}
+	}
+	\begin{center}
+		\input{Figures/Chapter3/fig_smallercorner_characterize/fig_radangle_center.tex}
+	\end{center}
+  \caption[Characterization plots comparing the angle of radiation, sidelobe level, backlobe level, 3dB beamwidth and directivity of the center-fed antenna over a broad bandwidth.]{(color inline) (a) Radiated beam angle, (b) 3dB beam width, (c) sidelobe level, (d) backlobe level and (e) directivity of the leaky-wave antenna for the geometrically compensated superstrate (blue) the back reflector (green) and initially designed superstrate (red).}
+\label{fig:centeradpattern}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary}
+%The phase of the wave constitute a precise profile at the upper interface of the that determines the radiation angle of the transmitted radiation. The permittivity distribution of the superstrate is obtained through transformation electromagnetics and is considered as the target domain in the process. The shape of corresponding homogeneous source domain determines the aspect ratio and permittivity profile of the superstrate. Using numerical quasi-conformal transformation, the rectangular inhomogeneous superstate is designed to behave like the homogeneous dielectric medium so that the two media have identical far-field field behavior.  However, later sections in this chapter will demonstrate that the optically transformed rectangular media  do not behave like the initial media because of discrepancies in phase distribution at the radiating interface. The phase-deviations at the interface deteriorates the broad band performance of the antenna with increased sidelobe level, backlobe level, directivity. In order to fix the discrepancies and improve the antenna performance, a two-step quasi-conformal transformation is required which We propose as \textit{geometric compensation technique}. Following sections demonstrate the origins of the phase-discrepancies and the technique of geometric compensation.
+
+Using the geometric compensation technique presented in Ch. \ref{Chapter2}, a leaky-wave antenna with fixed beam characteristics has been demonstrated in this chapter. Couple of variations, included a corner-fed as well as a center-fed with and without a back reflector, in the design process has been shown with simulations results and analysis. The results depict that the design using geometric compensation technique indeed offers improved radiation from the antenna as compared to the preliminary design shown in Ch. \ref{Chapter5}. 

@@ -1,0 +1,80 @@
+\begin{tikzpicture}
+    \begin{groupplot}[group style={
+                      group name=myplot,
+                      group size= 1 by 5, horizontal sep=2cm, vertical sep=1.25cm},height=3.5cm, width=7.5cm]
+        \nextgroupplot[ymin=20,
+ymax=55,
+%xlabel={Frequency},
+ylabel={$\theta_{rad}$},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$2$,$3$,$4$,$5$,$6$},
+        scaled x ticks = false,
+]
+                \addplot[blue, thick, mark = square]table [col sep=comma]  {Figures/Chapter3/fig_radpattern/A_radiation_angle.csv};\label{plots:plot1}
+                \addplot[red, thick, mark=o] table [col sep=comma] {Figures/Chapter3/fig_radpattern/A_radiation_angle_uncomp.csv};\label{plots:plot2}
+                       
+        \nextgroupplot[ymin=0,
+ymax=35,
+%xlabel={Frequency},
+ylabel={3dB BW},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$2$,$3$,$4$,$5$,$6$},
+        scaled x ticks = false,
+]
+                \addplot[blue, thick, mark = square] table [col sep=comma] {Figures/Chapter3/fig_radpattern/B_3db_beamwidth.csv};
+                \addplot[red, thick, mark=o] table [col sep=comma]  {Figures/Chapter3/fig_radpattern/B_3db_beamwidth_uncomp.csv};
+        
+        \nextgroupplot[ymin=0,
+ymax=95,
+%xlabel={Frequency},
+ylabel={SLL ($\%$)},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$2$,$3$,$4$,$5$,$6$},
+        scaled x ticks = false,
+]
+                \addplot[blue, thick, mark = square]  table [col sep=comma]{Figures/Chapter3/fig_radpattern/C_sidelobe.csv};
+                \addplot[red, thick, mark=o]  table [col sep=comma] {Figures/Chapter3/fig_radpattern/C_sidelobe_uncomp.csv};
+        
+        \nextgroupplot[ymin=30,
+ymax=90,
+ylabel={BLL ($\%$)},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$2$,$3$,$4$,$5$,$6$},
+        scaled x ticks = false,
+]
+                \addplot[blue, thick, mark = square] table [col sep=comma] {Figures/Chapter3/fig_radpattern/D_backlobe.csv};
+                \addplot[red, thick, mark=o] table [col sep=comma]  {Figures/Chapter3/fig_radpattern/D_backlobe_uncomp.csv};
+                
+        \nextgroupplot[ymin=0,
+ymax=20,
+xlabel={Frequency ($\times 10^8$)},
+ylabel={Directivity},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$2$,$3$,$4$,$5$,$6$},
+        scaled x ticks = false,
+]
+                \addplot[blue, thick, mark = square] table [col sep=comma] {Figures/Chapter3/fig_radpattern/E_directivity.csv};
+                \addplot[red, thick, mark=o] table [col sep=comma]  {Figures/Chapter3/fig_radpattern/E_directivity_uncomp.csv};
+                
+                
+    \end{groupplot}
+    
+    
+   % \path (myplot c1r1.outer north west)% plot in column 1 row 1
+   %       -- node[anchor=south,rotate=90] {throughput}% label midway
+      %    (myplot c1r2.outer south west)% plot in column 1 row 4
+    ;
+% legend
+\path (myplot c1r1.north|-current bounding box.north)-- 
+      coordinate(legendpos)
+      (myplot c1r1.south|-current bounding box.north);
+\matrix[
+    matrix of nodes,
+    anchor=south,
+    draw,
+    inner sep=0.2em,
+    draw
+  ]at([yshift=2ex]legendpos)
+  { \ref{plots:plot1}& Compensated Design &[5pt]\\
+    \ref{plots:plot2}& Initial Design \\};
+\end{tikzpicture}

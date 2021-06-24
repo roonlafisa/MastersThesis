@@ -1,0 +1,58 @@
+\documentclass[border=5pt]{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\definecolor{dbrown}{RGB}{165,42,42}
+\definecolor{dgreen}{RGB}{0,100,0}
+%\pgfplotsset{compat=1.12}
+\usepackage{verbatim}
+\usetikzlibrary{plotmarks}
+
+%\pgfplotsset{compat=1.5}
+\pgfplotsset{compat=1.5,
+tick label style={font=\small},
+label style={font=\small},
+legend style={font=\tiny},
+width=7.5cm,
+height=4.64cm,
+% tick style={thick}
+}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\begin{axis}[transpose legend,
+legend columns=1,
+legend style={at={(0.8,1.2)},anchor=north},
+cycle multi list={%
+{red,mark={}},
+{blue,solid,mark={}},
+},
+xmin=1e8,
+xmax=6.5e8,
+ymin=-4.2,
+ymax=0,
+xlabel={Frequency},
+ylabel={Return Loss (dB)},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$0.65f_0$,$f_0$,$1.35f_0$,$1.65f_0$,$2f_0$},
+scaled x ticks = false,
+%ytick={-1.4612e+03,-730.6029,0,730.6029,1.4612e+03},
+%title=Decay of Electric Field along the Single Slot and Slot Array under different dielectrics,
+%xticklabel=\empty,
+% yticklabel=\empty,
+%xlabel={$Wave vector (K_{x}a_{x}/2\pi)$},
+%ylabel={$Wave vector (K_{y}a_{y}/2\pi)$},
+% extra x ticks={-78.54,78.54},
+% extra y ticks={-78.54,78.54},
+% extra x tick labels={$-0.0625$,$0.0625$},
+% extra y tick labels={$-0.0625$,$0.0625$},
+% smooth,
+grid=major,
+%legend entries={ Real($Z_{in}$)}
+];
+\addplot [thick,color=dbrown, mark=o, solid] table [col sep=comma] {Figures/Chapter3/fig_Zin/returnloss.csv};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

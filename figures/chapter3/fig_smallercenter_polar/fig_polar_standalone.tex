@@ -1,0 +1,51 @@
+\documentclass[10pt,border=10pt]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{polar}
+\pgfplotsset{compat=1.12}    
+%\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_polar/radiation_pattern_comp_10.csv}{\loadeddataone}
+%\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_polar/radiation_pattern_uncomp_10.csv}{\loadeddatatwo}
+\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_smallercenter_polar/radiation_pattern_comp_1.csv}{\loadeddataone}
+\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_smallercenter_polar/radiation_pattern_uncomp_1.csv}{\loadeddatatwo}
+\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_smallercenter_polar/reflector_radiation_pattern_comp_1.csv}{\loadeddatathree}
+\begin{document}
+
+\begin{tikzpicture}
+\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_smallercenter_polar/radiation_pattern_comp_1.csv}{\loadeddataone}
+\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_smallercenter_polar/radiation_pattern_uncomp_1.csv}{\loadeddatatwo}
+\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_smallercenter_polar/reflector_radiation_pattern_comp_1.csv}{\loadeddatathree}
+\begin{polaraxis}[
+  grid=both,
+  legend pos=south west,
+  major grid style={dotted},  
+  minor grid style={dotted},  
+  minor x tick num=1,
+  minor y tick num=1,
+  title style={at={(0.5,0)},anchor=north,yshift=-25},
+  title = (a) Frequency {=} 1st Hz,
+  xtick={0,30,...,330},
+  ytick={0,10,...,60},
+ yticklabels={},
+  ymin=0,
+  ymax=1
+]
+%\addlegendentry{Uncompensated};
+\addplot[
+  data cs=polar,
+  red,
+  samples=500
+] table[x index=0,y index=2] {\loadeddatatwo};
+\addplot[
+  data cs=polar,
+  blue,
+  samples=500
+] table[x index=0,y index=2] {\loadeddataone};
+\addplot[
+  data cs=polar,
+  green,
+  samples=500
+] table[x index=0,y index=2] {\loadeddatathree};
+%\addlegendentry{Compensated};
+\end{polaraxis}
+\end{tikzpicture}
+
+\end{document}

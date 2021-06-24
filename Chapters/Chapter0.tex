@@ -1,0 +1,247 @@
+% Chapter 1
+
+
+\chapter{Introduction} % Main chapter title
+\label{Chapter0}
+%With all the sophisticated features of the state-of-art technological gadgets, we are often displeased by a simple device-failure. But once in a while we should acknowledge the fascinating science behind every technology that is the outcome of passion and research of the scientists. Modern science explores early  who described how electromagnetic waves are governed. 
+
+This thesis describes the concept, design process, and performance of a broadband fixed-beam leaky-wave antenna. The antenna is designed through developing a method that applies transformation electromagnetics to antenna design. The proposed leaky-wave antenna offers fixed-beam performance over a broad range of frequencies. This introductory chapter outlines the essential concepts of electromagnetics that are subsequently mentioned in this thesis. %In addition, it provides the reader with the perception that motivated the research.
+
+
+\section{Antennas}
+
+Electromagnetic radiation is the process of electromagnetic energy transmission over a distance, usually through free-space. It is the basis upon which modern communication systems have developed. But how does electromagnetic energy get radiated into free-space, and how does the radiation get collected by a receiving system? A special electric device called antenna makes the emission and reception of electromagnetic radiation possible in practice. Antennas are essential to control and transfer electromagnetic energy when the use of wired system is no way possible. Wireless radio communication was pioneered during the first trans-Atlantic radio communication by Guglielmo Marconi in 1901 \cite{Ramsay1969}. The aerial antenna Marconi used during his experiment is presented in Fig. \ref{fig:Marconi}. The experiment successfully transmitted wireless data over a large distance and stimulated general attention in wireless communication and antennas. Since then, the world has witnessed an ever-growing research interest in antennas as an integral part of wireless communication.
+%
+\begin{figure} [thp]
+\centering
+\noindent
+	\hspace*{\fill}%
+	\mbox{\subfloat[]{
+  \begin{overpic}[scale=0.3]{Figures/Chapter0/marconi_original.jpg}
+		
+	\end{overpic}}}
+	\hspace*{\fill}%
+  \mbox{\subfloat[]{
+  \begin{overpic}[scale=0.4]{Figures/Chapter0/marconi}
+		
+	\end{overpic}}}
+  	\hspace*{\fill}%
+  \caption[Original photograph and outline of the first antenna used by Marconi for radio communication in 1901.]{Original photo of the aerial that was used at the Poldhu station by Marconi for the first radio communication (courtesy: Bodleian Libraries, University of Oxford) (a). An outline of the aerial of 54 wires were put up, supported by two masts 48 meters high and 60 meters apart (b). The aerial wires were arranged fan shaped. This type of antenna is now called a fan monopole antenna \cite{Ramsay1969}.}
+\label{fig:Marconi}
+\end{figure}
+
+Antennas come in various size and shapes. There are generally numerous alternatives while choosing an antenna for a given application. Finding a suitable antenna type is a primary step in the design of a wireless system. A well-designed transmitter antenna is expected to convert utmost input power to radiated power, while sending as much of it as possible in the direction of the receiver antenna. %Moreover, the antenna dimensions are expected to be small enough to be allow it to mount on a compact space of a wireless system. All modern efficient antennas usually offer a physical size no more than a fraction of a wavelength at the operating frequency. 
+%The antenna used by Marconi which appeared to be very large at the time of its use. However, the dimensions of the antenna were in fact a small fraction of wavelength (366 m).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Broadband Antennas}
+
+Broadband antennas belong to the category of antennas that provides comparatively constant performance over a wide frequency range. Research interest in broadband antennas has grown steadily in recent years, in part due to the need for devices that operate at multiple frequency bands. Broadband applications include radar and tracking systems \cite{Jackson2004,Arslan2006,Begaud2013}, electromagnetic compatibility (EMC) measurement \cite{paul2006}\cite{Botello-Perez2005}, and broadband communications systems. 
+
+The primary challenge for designing broadband antennas is to obtain a wide-impedance bandwidth while maintaining good radiation efficiency through the entire frequency range. Broadband antennas offer negligible impedance and pattern variations over wide range of frequencies. The most widely used antennas generate radiation through the principle of resonance. Examples of such antennas are the dipole antenna, horn antenna, microstrip antenna. These antennas generate radiation by resonating at a designed frequency \cite{james1989}. The resonating characteristics make the these antennas unsuitable for most broadband applications.
+%
+\begin{figure} [t!]
+\centering
+  \noindent
+\hspace*{\fill}%
+	\noindent
+	\mbox{\subfloat[]{
+  \begin{overpic}[scale=0.4]{Figures/Chapter0/broadband_antennas/bow_tie_modern_ant_handbook.PNG}
+				\put(
+				-9,49){\footnotesize Feed}
+
+	\end{overpic}}}
+\hspace*{\fill}%
+  \mbox{\subfloat[]{
+  \begin{overpic}[scale=0.4]{Figures/Chapter0/broadband_antennas/spiral_Circularly_Polarized_Antennas.PNG}
+			    \put(-15,63){\footnotesize Arm 1}
+			    \put(-15,27){\footnotesize Arm 2}
+
+	\end{overpic}}}
+	  \hspace*{\fill}%
+  \caption[Planar representation of bow-tie and two-am spiral antennas.]{Planar representation of a bow-tie antenna \cite{Shafai2007} (a) and a two-am spiral antenna \cite{Gao2013} (b). }
+\label{fig:broadband}
+\end{figure}
+%
+Broadband antennas are frequently utilized by incorporating multiple resonance frequencies. For instance, a simple dipole antenna operates by resonating at a length of half-a-wavelength at its design frequency. Therefore, there is a narrow range of frequencies that provides resonance for such physical length of the dipole. In order to apply dipole antennas for broadband applications, its shape can be modified to form a bow-tie antenna as shown in Fig. \ref{fig:broadband}a \cite{Balanis2005}. The structure of a bow-tie antenna allows it to resonate over a wider range of frequencies.
+
+Apart from multiple resonant structures, broadband antennas are often employed through self-complimentary structures. If radiation properties of an antenna structure is determined by its dimensions in terms of wavelengths, its performance would strictly be a function of frequency. Therefore, an antenna described by its electrical length results in narrow bandwidth of operation. The only way to obtain frequency-independent properties of an antenna is by describing its shape by angular specifications alone. Such a design ensures that the shape of the antenna scales in proportion to the variation of frequency. Antennas that employ self-complimentary structures are called frequency independent antennas \cite{Rumsey1957}. A spiral-shaped self-complimentary structure, illustrated in Fig. \ref{fig:broadband}b, is a commonly used self-complimentary structure. The antenna structure is fed between the closest ends of the two arms. Spiral antennas are generally implemented on planar or conical surfaces and achieve fractional bandwidth (highest frequency $/$ lowest frequency) of approximately $5:1$ to $30:1$. 
+
+ 
+%Broadband antennas can also be implemented by helical antennas, log-periodic antennas and so on. The choice of the type of broadband antenna depends on the application, bandwidth requirement as well as the size and performance of the antenna. Nevertheless, 
+A broadband antenna is expected to demonstrate constant input impedance with the frequency variations. Bow-tie, helical, and log-periodic are some of many other antennas that demonstrate wide input impedance bandwidth. Another type of antenna which achieves a wide impedance bandwidth is the leaky-wave antennas. %However, leaky-wave antennas demonstrate the characteristics to be inherently used for broadband applications. 
+
+%Broadband antennas can also be implemented by helical antennas, log-periodic antennas, leaky wave antennas. 
+
+%Broadband technology represent systems with very large frequency bandwidth \cite{Arslan2006}. It is a powerful technology that offers several advantages that make it appealing for commercial applications. In particular, broadband have potentially low power consumption, low cost implementation, high data rates, resistance to severe multipath and so on. Such benefits enables broadband technology to be applied in communications, radar, imaging and positioning. However, the regulatory authorities restrict the emitted power level of broadband communications to a few meters for high data rates and upto a few hundred meters for low data rates \cite{Begaud2013, RadioStandardsSpecificationRSS-2202009}. Thus, it happens to be a reasonable alternative to existing technology for short range communications and multimedia applications. Research on wideband antennas has been a major source of interest for researchers as compared to comparatively well-developed narrowband antennas. The primary challenge for wideband antenna design is to obtain a wide-impedance bandwidth while maintaining decent radiation efficiency through the frequency range. Typically ultra-wideband antennas are required to have 100\% bandwidth as well as high radiation efficiency. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Leaky-wave antennas} \label{chap0:LWA}
+%A leaky-wave antenna is a kind of antenna that bears great potential to be applied for broadband applications. Part of its customary appeal is its beam scanning ability. The primary beam from leaky wave antennas beam is capable to sweep adjacent space as a function of frequency for a wide range of scan-angles, which makes the antenna suitable for automotive collision avoidance \cite{Ettorre2010, Wollitzer1998} and radar system \cite{Yang2013}. 
+\begin{figure} [t]
+\centering
+  \noindent
+\hspace*{\fill}%
+	\noindent
+	\mbox{\subfloat[]{
+  \begin{overpic}[scale=0.4]{Figures/Chapter0/LWA_Structure/slit}
+
+	\end{overpic}}}
+\hspace*{\fill}%
+  \mbox{\subfloat[]{
+  \begin{overpic}[scale=0.4]{Figures/Chapter0/LWA_Structure/holed}
+
+	\end{overpic}}}
+	  \hspace*{\fill}%
+  \caption[Diagrams of a uniform and a periodic leaky wave antenna implemented on rectangular waveguides.]{The first leaky-wave antenna was implemented on a rectangular waveguide by introducing a longitudinal aperture in the side wall of the structure (a). The same waveguide can be transformed into a periodic leaky-wave antenna by it with filling with a dielectric material and introducing an array of holes (b). The gray plane surrounding the aperture and holes is an infinite ground plane. }
+\label{fig:LWAStructure}
+\end{figure}
+
+Leaky-wave antennas are a category of traveling-wave antennas \cite{Collin1985}. Traveling wave antennas have a structure that allows an electromagnetic wave to travel along a transmission line in one direction only. Being non-resonant in principle, traveling-wave antennas are well-suited for broadband applications. They can be categorized into surface-wave antennas and leaky-wave antennas. Surface wave antennas employ surface waves to generate radiation. Surface wave antennas radiate using surface waves and leaky wave antennas radiate using leaky waves. The first leaky-wave antenna was published in 1946 \cite{hansen1946} which was a structure based on a rectangular waveguide with a long uniform longitudinal slit (see Fig. \ref{fig:LWAStructure}a). A propagating mode exists within the waveguide which is leaks energy through the longitudinal slit. The antenna performed based on a traveling wave along the waveguide that produced radiation through the open slit into free-space. %Following Hansen's introduction, multiple structures with analytic solutions were proposed for various leaky-wave antennas. Most of the these initial designs were based on rectangular waveguides with uniform opening that allowed radiation into free-space \cite{Jackson2008}. 
+
+In 1957, Hines and Upson proposed the first perturbed leaky-wave antenna by replacing the uniform slit by a series of circular holes on a rectangular waveguide \cite{Hines1957}. Introduction of an array of holes initiated a new category of leaky-wave antennas that utilized a periodic structure. Referred to as ``holey waveguide", this new kind of leaky-wave antenna offered several advantages over the ones having a uniform aperture. The structure had higher leakage of energy per unit length of the structure \cite{Jackson2008}. Hence it was physically smaller than the previous designs. The structures of these first two leaky-wave antenna is presented in Fig. \ref{fig:LWAStructure}. In later years, focus was shifted towards array structures of leaky-wave antennas. In 1980, Oliner, Lampariello, Shigesawa and Peng individually performed extensive investigation on one-dimensional leaky-wave antenna arrays \cite{Oliner1988}. Concurrently, Alexopoulos and Jackson studied two-dimensional leaky-wave antennas \cite{Alexopoulos1984, Jackson1985}.
+
+Typical LWAs are beam scanning. Their primary beam sweeps adjacent space as a function of frequency for a wide range of scan-angles. This makes the antenna suitable for common applications like automotive collision avoidance \cite{Ettorre2010} \cite{Wollitzer1998} and radar system \cite{Yang2013}. However, some applications requires the radiation to be independent of frequency and directed at a certain location over the operating frequency range. Such applications include wireless local area networks \cite{Arslan2006}, ultrawideband technology \cite{Begaud2013}, satellite communications, and radiometric field sensing. Research on reducing the beam scanning characteristics has been conducted by cascading negative-refractive-index transmission-line metamaterial unit cells \cite{Antoniades2008} and applying non-Foster artificial transmission lines \cite{mirzaei2011}. These designs offered reduced beam-scanning performance from leaky-wave antennas; however, they demonstrated small scanning characteristics. In order to achieve fixed-beam radiation from leaky-wave antennas, rather than reducing their beam scanning performance, Neto and Maci proposed uniques structure for leaky-wave antennas. In 2003, they reported the existence of a leaky-wave mode in a slot-line printed on an infinite ground plane by Neto and Maci \cite{Neto2003, Maci2004}. The radiated beam from the leaky-wave mode generates a constant beam independent of the operating frequency. This investigation opened a new approach of research on leaky-wave antennas that focused on fixed-beam radiation, leading to various novel designs.  Neto \textit{et al.} implemented the first fixed-beam leaky wave antenna by placing a hemispherical dielectric lens on top of a slot-line as shown in Fig. \ref{fig:LWAbackground}a \cite{Neto2005}. The structure produced directive broadside radiation. Bruni \textit{et al.} proposed an alternative of the lens-based structure in 2007 \cite{Bruni2007}. The structure was implemented with a tilted slot-line so that the leaky-wave beams were normal to the upper interface. The wavefronts of leaky-wave radiation emerged from the slot-line encountered the dielectric lens interface at normal incidence. A prototype of the design is presented in Fig. \ref{fig:LWAbackground}b. The slot-generated radiation propagates through the denser dielectric lens above and couples into free-space. The leaky-wave radiation from the slot can directly radiate into free-space if the substrate below the slot-line has a relative permittivity below unity. In 2011, Sievenpiper used a non-Foster circuit substrate to design such an antenna structure as a planar alternative to the designs of Neto and Bruni \textit{et al.} \cite{Sievenpiper2011}. This design had non-broadside radiation capabilities; however it could only be implemented by active circuits to implement the permittivity-below-unity substrate over a wide bandwidth. 
+
+\begin{figure} [t!]
+\centering
+  \noindent
+\hspace*{\fill}%
+	\noindent
+	\mbox{\subfloat[]{
+  \begin{overpic}[scale=0.4]{Figures/Chapter0/LWA_background/neto_2009.png}
+				
+
+	\end{overpic}}}
+\hspace*{\fill}%
+  \mbox{\subfloat[]{
+  \begin{overpic}[scale=0.4]{Figures/Chapter0/LWA_background/bruni_2007.png}
+		
+
+	\end{overpic}}}
+	  \hspace*{\fill}%
+  \caption[CAD drawing of the leaky lens antenna proposed by Neto \textit{et al.} and prototype of a similar lens antenna proposed by Bruni \textit{et al.}.]{CAD drawing of the leaky lens antenna proposed by Neto \textit{et al.} \cite{Neto2005} (a) Prototype of a similar lens antenna proposed by Bruni \textit{et al.} \cite{Bruni2007} (b).}
+\label{fig:LWAbackground}
+\end{figure}
+
+Most leaky-wave antenna applications are used for their beam scanning capability. Slot line LWAs provide a way to produce broadband fixed-beam radiation.
+%
+%Such applications include Wireless Local Area Networks (WLAN) \cite{Jiang2014}, multi-beam imaging systems \cite{Bruni2007_2}, electromagnetic compatibility (EMC) \cite{Bruni2007_3}.  Only a few of designs of fixed-beam leaky-wave antennas have been proposed over the past decade. 
+%
+This thesis presents a novel design of a broadband fixed-beam leaky-wave antenna. The antenna is based of the works of Neto \textit{et al.} \cite{Neto2005} and Bruni \textit{et al.} \cite{Bruni2007}. It implements graded dielectric index and offers adjustable fixed-beam direction performance for planar applications. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Transformation electromagnetics}
+
+The design concept of the antenna presented in this thesis employs transformation electromagnetics. Transformation electromagnetics, also known as transformation optics, is a technique that utilizes coordinate transformation to control the propagation of light. The technique was introduced 2006 \cite{Pendry2006}\cite{Leonhardt2009}. It provides flexibility in designing media to control the propagation of electromagnetic waves. Optically transformed structures have been widely used in various electromagnetic applications including cloaking \cite{Schmied2010}\cite{Rahm2008}, electromagnetic rotators \cite{Luo2008}\cite{Chen2009}, optical black holes or absorbers \cite{Cheng2010} \cite{Narimanov2009}, hyperlenses \cite{Kildishev2007}\cite{ Tsang2008}, electromagnetic concentrators \cite{Yaghjian2008}\cite{Jiang2008}, sensor cloaks \cite{Alu2009} and so on. %The refractive index of an optically transformed medium, defined by the permittivity and permeability tensor, allows the electromagnetic fields to progress in a prescribed manner. 
+
+%Transformation electromagnetics lies within the concept of coordinate transformation that allows one coordinate system to be mapped into another. The process of transformation electromagnetics starts with an original coordinate system that has optical rays following a specific path. Then coordinate transformation is performed such that optical rays gets perturbed in a desired way. Consider a coordinate space $\mathbf{r}$ being mapped into another coordinate system defined by $\mathbf{r'}$ through the following Eq. \ref{eq:cortran} as demonstrated in Fig. \ref{fig:cortran}. 
+%
+%\begin{equation} \label{eq:cortran}
+%    \mathbf{r'} = T(\mathbf{r})
+%\end{equation}
+%
+%where $T()$ is the mapping function that maps $\mathbf{r'}$ into $T(\mathbf{r})$. The coordinate $\mathbf{r}$ in Fig. \ref{fig:cortran} is considered as Cartesian for convenience. The notations in prime superscripts indicate the transformed coordinate. If a point from the original coordinate system $\mathbf{r}$ is plotted in the new coordinate space $\mathbf{r'}$, it will project into a different location depending on the mapping function $T()$. Consequently, an electromagnetic field that follows a straight line in the region $\mathbf{r}$ would bend in $\mathbf{r'}$ as shown by the ray diagram in the Fig. \ref{fig:cortran}. 
+%
+%\begin{figure}[t!]
+%\begin{center}
+
+ %\begin{overpic}[scale=.8]{Figures/Chapter0/coordinate/conformal_chap0}
+  %  \put(6,-5){\footnotesize $\mathbf{r} = x\hat{\mathbf{x}} + y\hat{\mathbf{y}} + z\hat{\mathbf{z}}$}
+   % \put(63,-5){\footnotesize $\mathbf{r'} = x'\hat{\mathbf{x'}} + y'\hat{\mathbf{y'}} + z'\hat{\mathbf{z'}}$}
+	%\end{overpic}
+%\end{center} 
+        
+%\caption[Demonstration of conformal transformation]{Demonstration of conformal transformation. Coordinate lines of constant $x$ and $y$ is shown in domains $w$ and $t$.}
+%\label{fig:cortran}
+%\end{figure}
+%
+%The relationship of coordinate transformation described in Eq. \ref{eq:cortran} is defined so that the curved coordinate grids in region $\mathbf{r'}$ allows the ray to bend in a specified way. 
+
+%In order to obtain material parameters of the transformed domain, coordinate transformation is aided by Jacobian transformation matrix. The permittivity and permeability of a medium is a function of space, constant and varying for homogeneous and inhomogeneous media, respectively. The Jacobian matrix transforms functions of space between two coordinate systems. It is generally represented by $\Lambda$ and is described by a 3D matrix for three dimensional transformations. The elements of the Jacobin matrix quantifies the stretching of coordinates and descries how far function $T()$ displaces due to a change in transformed coordinate relative to a similar change in the original coordinate.  The jacobian matrix that describes the transformation between regions $r$ and $r'$ is given by the following equation
+%
+%\begin{equation} \label{corjac}
+%
+%\Lambda = \begin{bmatrix}
+ %                \dfrac{\partial x'}{\partial x} & \dfrac{\partial x'}{\partial y} & \dfrac{\partial x'}{\partial z} \\
+  %               \dfrac{\partial y'}{\partial x} & \dfrac{\partial y'}{\partial y} & \dfrac{\partial y'}{\partial z} \\
+   %              \dfrac{\partial z'}{\partial x} & \dfrac{\partial z'}{\partial y} & \dfrac{\partial z'}{\partial z}   
+    %      \end{bmatrix}
+%
+%\end{equation}
+%
+
+%Followed by the coordinate mapping, finding the permeability and permittivity tensors of the transformed medium is the last step of transformation electromagnetics. When the original medium is transformed into a new coordinate system, the transformed medium is defined by exotic values of permittivity and permeability characteristics which regular materials cannot provide. The permittivity ($[\epsilon']$) and ($[\mu']$) tensors that describe the medium transformed coordinate system ($\mathbf{r'}$) is defined by the following equation:
+%
+%\begin{subequations} 
+ %   \begin{align}
+  %  [\epsilon'] &= \dfrac{[\Lambda][\epsilon][\Lambda]^T}{det[\Lambda]}\\
+   % [\mu'] &= \dfrac{[\Lambda][\mu][\Lambda]^T }{det[\Lambda]} 
+ %   \end{align}
+%\end{subequations}
+%
+%where, $[\epsilon]$ and $[\mu]$ are the permittivity and permeability tensor of the medium in the original coordinate system ($\mathbf{r}$). The permittivity ($\mu$) and permeability ($\epsilon$) of the transformed medium can either be isotropic or anisotropic. Anisotropic media can be utilized by metamaterials, while isotropic media can be implemented through graded index materials to construct the transformed coordinate system $\mathbf{r'}$. Graded index dielectric media are preferred over metamaterials for broadband applications.  
+
+\begin{figure} [t!]
+\centering
+\noindent
+\begin{overpic}[scale=0.8]{Figures/Chapter0/transformation_corrected.pdf}	\end{overpic}
+  
+  \caption[Coordinate transformation of a curved domain to a rectangular one.]{Coordinate transformation of a uniform dielectric initial domain to rectangular one. The resulting inhomogeneous material distribution inside the transformed domain is presented in the surface plot. \textcopyright  IOP Publishing.  Reproduced with permission.  All rights reserved \cite{Campbell2016}.}
+\label{fig:initrans}
+\end{figure}
+Transformation electromagnetics relies on the concept of coordinate transformation that allows one coordinate system to be mapped into another \cite{landy2009}. It allows the transformation of one geometry into another while maintaining its electromagnetic waveguiding properties. Figure \ref{fig:initrans} demonstrates transformation optics where an arbitrary shaped region in rectangular $(x,y)$ coordinates is transformed into a flat region in $(u$,$v)$ coordinate. The initial domain contains uniform dielectric. The rectangular coordinate grids of the initial region undergoes stretching and squeezing to map into the transformed space. The regions in $(u$,$v)$ domain that experiences coordinate squeezing has higher dielectric index than the  equivalent spaces in $(x$,$y)$ domain . This leads to inhomogeneous distribution of dielectric index in the transformed space . Due to the inhomogeneous distribution of material parameters inside the medium, electromagnetic waves propagate in a curved path. Thus, by employing transformation optics propagation path of the waves can be manipulated. This has been useful in designing high-performance antennas \cite{Wu2014} \cite{Lustrac2013}. In particular, transformation electromagnetics is mostly utilized to transform bulky antennas to low profile ones. For instance, parabolic reflector antennas are used for wide range of applications due to their high directivity \cite{pozar2009}. However, at low frequencies their structure becomes bulky. Transformation electromagnetics is used to design a planar alternative design of parabolic reflector antennas \cite{Tang2010} \cite{Tang2014}. Directivity of a horn antenna is improved by incorporating a graded index dielectric lens through transformation electromagnetics \cite{Aghanejad2012}. 
+
+
+%The antenna presented in this thesis consists of a graded dielectric index slab. Transformation electromagnetics is employed to design the rectangular slab. The transformation process is carried out numerically through commercial CAD software COMSOL. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{Electromagnetic Simulation}
+%Analytical methods have been traditionally used to analyze and predict antenna characteristics before performing experimental measurements. However, the antenna performances affected by environmental conditions are challenging to determine analytically. In addition, it is often difficult to perform precise experimental measurements for complicated antenna structures. Therefore, modern antenna engineers trust in specialized electromagnetic simulators in the design, development and optimization of antennas \cite{Vasylchenko2009},\cite{Taguchi1998}. Computer-aided design (CAD) and optimization techniques are now capable enough to replicate a physical interpretation of antenna radiation and therefore precedes any iterative experimental procedure. 
+
+%Electromagnetic simulators imitates an antenna performance through numerical solution of Maxwell's equations. Most widely used numerical solution procedures are method of moments (MoM), finite-difference time-domain (FDTD) method and finite element method (FEM). In MoM, metallic areas of an antenna are replaced by wire-grids which makes the simulation more efficient than other methods \cite{Rawle2006}. However, MOM's dependency on Greens' function often limits its versatility \cite{Garg2011}. As for the FDTD method, the solution of Maxwell's equations can be obtained in the time domain. FDTD computes the temporal evolution of electromagnetic fields with a single run which minimizes the computation memory \cite{taflove2000} \cite{Smith2008}. Nevertheless, FEM is widely accepted for frequency domain analysis. FEM is flexible in simulating complex geometries and implementing boundary conditions into them. In essence, FEM is well-suited for numerically analyzing broadband antennas. 
+
+%A large number of electromagnetic simulations and parametric studies have been carried out to characterize the antenna designed in this thesis. The numerical transformation, antenna design and simulated results presented in this thesis were carried out using CAD tool COMSOL Multiphysics that implements FEM \cite{COMSOL}. In addition, part of the analysis of the far-field antenna performance was performed using MATLAB. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Proposed design}
+
+\subsection{Motivation and objective}
+Leaky-wave antennas are commonly known for their beam scanning performance while maintaining a wide input impedance bandwidth. Oblique fixed-beam leaky-wave antennas have received less attention as compared to beam-scanning ones. As will be shown in the next chapter, a few broadband fixed-beam leaky-wave antenna have been proposed in the past decade. The first designs presented by Neto \textit{et al.} \cite{Neto2005} and Bruni \textit{et al.} \cite{Bruni2007} radiated only in the broadside direction. Sievenpiper's design in 2011 implemented active circuits \cite{Sievenpiper2011}. The principle motivation for this research was to propose a passive broadband planar leaky-wave antenna, with a capability to radiate at an oblique direction for the entire bandwidth.
+
+\subsection{Design specifications}
+\subsubsection{Geometry}
+Leaky-wave antennas are typically electromagnetically long as compared to other antenna categories. The reason is that the leaky-wave antenna structure must be long enough to support a traveling wave that decays while propagating. Among other leaky-wave antennas, the one proposed by Neto \textit{et al.} was $10.9 \lambda_0$ \cite{Neto2005}, Bruni \textit{et al.} was $42.6 \lambda_0$ \cite{Bruni2007}, Sievenpiper was $10 \lambda_0$ long at the maximum operating frequency \cite{Sievenpiper2011}, where $\lambda_0$ is the free-space wavelength. The rectangular antenna presented in this thesis has a length of $8.4 \lambda_0$ at the design frequency and a height of $5.8 \lambda_0$.
+
+\subsubsection*{Bandwidth}
+Frequency bandwidth is the most significant parameter for broadband antennas. The challenge of the proposed leaky-wave antenna was to maintain a consistent input impedance for producing a desired oblique beam over a wide range of frequency. The leaky-wave antenna proposed by Neto \textit{et al.} was capable to radiate at a fixed angle for a percentage bandwidth of $43\%$ \cite{Neto2005}, which was later improved to $160\%$ \cite{Bruni2007}. However, the design was limited to broadside radiation only. In 2011, Sievenpiper solved the issue by employing non-Foster circuits. The design had a bandwidth of $163.64 \% $\cite{Sievenpiper2011}. The fixed-beam leaky-wave antenna proposed in this thesis is a passive device which is capable to radiate at a non-broadside direction with a percentage bandwidth of more than $120 \%$. %The simulation results presented in this thesis is limited to a maximum frequency of $2.5c$ Hz. However, the antenna is expected to provide fixed-beam performance for higher frequencies as well. 
+
+\subsubsection{Contribution}
+
+The major contributions of the thesis to the field of electromagnetics, in particular, the antenna design, can be summarized in the following points: %
+\begin{itemize}
+    \item The proposal, development, and validation of a technique to improve radiation characteristics of planar antennas that incorporates transformation electromagnetics. The technique compensates for the discrepancy in expected phase profile at the boundary of an electromagnetically transformed medium. 
+    \item Study the influence of different physical parameters of slot-line leaky-wave radiation.
+    \item Development of a broadband slot-line leaky-wave antenna for oblique radiation.
+\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Thesis organization}
+This thesis aims to thoroughly describe the performance of the proposed antenna as well as to provide background details on electromagnetic wave theory and leaky-wave antennas. In order to narrate the important aspects and different stages of the research, this thesis is divided into five chapters. The introductory chapter contains the groundwork of associated research with a brief overview of the fundamental concepts. A brief summary of the contents in the other chapters is given below.
+\begin{itemize}
+    \item Chapter 2 introduces electromagnetic wave theory, in particular, Maxwell's equations and their extension to wave equations. Different types of leaky-wave antennas and their radiation mechanism are reviewed. Specifically, mechanism for fixed-beam radiation from slot arrays is addressed in this chapter.  This is followed by a brief review on transformation electromagnetics. The mathematical concepts behind coordinate mapping and derivation of material parameters in the transformed medium is also presented. 
+    \item Chapter 3 discusses the preliminary research procedure of this research project. 
+    \item Chapter 4 demonstrates how an optically transformed medium comprises of phase-discrepancies at the air-dielectric interface. Based on equations of transformation electromagnetic, a \textit{geometric compensation technique} is demonstrated to compensate the phase-discrepancies. 
+    \item Chapter 5 is devoted to the design and analysis of a broadband fixed beam leaky-wave antenna using the technique introduced in chapter 4. Broadband performance of the antenna including side-lobe and backlobe behavior, fixed-beam characteristics and directivity of the designed antenna is presented. 
+    \item Finally, Chapter 6 summarizes this thesis with conclusions followed by potential ideas for future work.
+\end{itemize}
+
+The thesis is an outcome of the research experience of the author and immense guidance of his supervisor. The author hopes that this thesis will guide beginner researchers to acquire general concepts of leaky-wave antennas as well as the specialists to design antennas using transformation electromagnetics. In addition to the basic concepts of leaky-wave antennas and transformation electromagnetics, the reader will also experience the decision process that the author went through during his investigation.

@@ -1,0 +1,122 @@
+
+\begin{tikzpicture}
+
+
+\pgfplotstableread[col sep=comma]{Figures/Chapter5/fig_double/eps_2.csv}{\loadeddataone}
+\pgfplotstableread[col sep=comma]{Figures/Chapter5/fig_double/eps_4.csv}{\loadeddatatwo}
+
+ \begin{groupplot}[group style={
+                      group name=myplot,
+                      group size= 1 by 5, horizontal sep=2cm, vertical sep=1.0cm},height=3.5cm, width=7.5cm]
+     
+ 
+         \nextgroupplot[ymin=0,
+		ymax=4000,
+		title style={at={(0.5,0)},anchor=north,yshift=-10,xshift=70},
+		title = (a),
+		%xlabel={Frequency},
+		ylabel={Peak field (V/m)},
+		xtick={0,0.25,.5,0.75,1,1.25,1.5},
+        %scaled x ticks = false,              
+        x tick label style={rotate=45, anchor=east},
+						]
+
+                \addplot[dbrown, thick, mark = o] table[ x index=0,y index=1] {\loadeddataone}; \label{plots:plot1a}
+                \addplot[dgreen, dashed, thick, mark = *] table[ x index=0,y index=1] {\loadeddatatwo};\label{plots:plot2a}
+             
+
+
+
+
+                       
+        \nextgroupplot[ymin=0,
+		ymax=90,
+		%xlabel={Frequency},
+		title style={at={(0.5,0)},anchor=north,yshift=-10,xshift=70},
+		title = (b),
+		ylabel={$\theta_{rad}$ (deg)},
+		xtick={0,0.25,.5,0.75,1,1.25,1.5},
+		%scaled x ticks = false,              
+		x tick label style={rotate=45, anchor=east},
+		]
+
+
+                \addplot[dbrown, thick, mark = o] table[ x index=0,y index=2] {\loadeddataone};
+                \addplot[dgreen,dashed, thick, mark = *] table[ x index=0,y index=2] {\loadeddatatwo};
+
+
+
+
+
+        
+        \nextgroupplot[ymin=0,
+		ymax=150,
+		%xlabel={Frequency},
+		title style={at={(0.5,0)},anchor=north,yshift=-10,xshift=70},
+		title = (c),
+		ylabel={SLL ($\%$)},
+		xtick={0,0.25,.5,0.75,1,1.25,1.5},
+		%scaled x ticks = false,              
+		x tick label style={rotate=45, anchor=east},
+		]
+
+                \addplot[dbrown, thick, mark = o] table[x index=0,y index=3] {\loadeddataone};
+                \addplot[dgreen, dashed, thick, mark = *] table[ x index=0,y index=3] {\loadeddatatwo};
+
+
+
+
+ 
+        
+        \nextgroupplot[ymin=0,
+		ymax=100,
+		%xlabel={Frequency},
+		title style={at={(0.5,0)},anchor=north,yshift=-10,xshift=70},
+		title = (d),
+		ylabel={BW (deg)},
+		xtick={0,0.25,.5,0.75,1,1.25,1.5},
+		%scaled x ticks = false,              
+		x tick label style={rotate=45, anchor=east},
+		]
+
+                \addplot[dbrown, thick, mark = o] table[x index=0,y index=4] {\loadeddataone};
+                \addplot[dgreen,dashed, thick, mark = *] table[ x index=0,y index=4] {\loadeddatatwo};
+
+
+
+ 
+ 
+    \nextgroupplot[ymin=0,
+		ymax=4000,
+		xlabel={Distance from ground plane ($\lambda_0$)},
+		ylabel={Broadside field (V/m)},
+		title style={at={(0.5,0)},anchor=north,yshift=-10,xshift=70},
+		title = (e),
+		xtick={0,0.25,.5,0.75,1,1.25,1.5},
+		%scaled x ticks = false,              
+		x tick label style={rotate=45, anchor=east},
+		]
+
+                \addplot[dbrown, thick, mark =o] table[ x index=0,y index=5] {\loadeddataone};
+                \addplot[dgreen,dashed, thick, mark = *] table[ x index=0,y index=5] {\loadeddatatwo};
+
+                
+    \end{groupplot}
+
+
+\path (myplot c1r1.north|-current bounding box.north)-- 
+coordinate(legendpos)
+(myplot c1r1.south|-current bounding box.north);
+\matrix[
+matrix of nodes,
+anchor=south,
+draw,
+inner sep=0.2em,
+draw
+]at([yshift=2ex]legendpos)
+{ 
+	\ref{plots:plot1a}& Relative permittivity, $\epsilon_r$ =2  &[5pt]\\
+	\ref{plots:plot2a}& Relative permittivity, $\epsilon_r$ =4 &[5pt]\\};
+
+\end{tikzpicture}
+

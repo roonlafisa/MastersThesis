@@ -1,0 +1,38 @@
+\begin{tikzpicture}
+
+\begin{axis}[transpose legend,
+legend columns=1,
+legend style={at={(0.82,1.2)},anchor=north},
+cycle multi list={%
+{red,mark={}},
+{blue,solid,mark={}},
+},
+ymin=-22,
+ymax=3,
+xmin=0,
+xmax=7,
+xlabel={Arc length ($\lambda_0$)},
+ylabel={Unwrapped phase (degrees)},
+xtick={0,1,2,3,4,5,6,7},
+%ytick={-1.4612e+03,-730.6029,0,730.6029,1.4612e+03},
+xticklabels={$0$,$1$,$2$,$3$,$4$,$5$,$6$,$7$},
+%title=Decay of Electric Field along the Single Slot and Slot Array under different dielectrics,
+%xticklabel=\empty,
+% yticklabel=\empty,
+%xlabel={$Wave vector (K_{x}a_{x}/2\pi)$},
+%ylabel={$Wave vector (K_{y}a_{y}/2\pi)$},
+% extra x ticks={-78.54,78.54},
+% extra y ticks={-78.54,78.54},
+% extra x tick labels={$-0.0625$,$0.0625$},
+% extra y tick labels={$-0.0625$,$0.0625$},
+% smooth,
+grid=major,
+%legend entries={$\epsilon_r = 2$ (single slot),$\epsilon_r = 4$ (single slot),$\epsilon_r = 2$ (slot array),$\epsilon_r = 4$ (slot array)}
+legend entries={Initial design, Ideal linear phase}
+];
+\addplot [thick, color=red, solid] table [col sep=comma] {Figures/Chapter3/fig_phase/uv_uncomp.csv};
+%\addplot [thick, color=blue, solid] table [col sep=comma] {Figures/Chapter3/fig_phase/uv_comp.csv};
+\addplot [thick, color=black, dashed] table [col sep=comma] {Figures/Chapter3/fig_phase/uv_ideal.csv};
+
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,36 @@
+\begin{tikzpicture}
+
+\begin{axis}[transpose legend,
+legend columns=1,
+legend style={at={(0.8,1.2)},anchor=north},
+cycle multi list={%
+{red,mark={}},
+{blue,solid,mark={}},
+},
+xmin=1e8,
+xmax=6.5e8,
+ymin=-35,
+ymax=0,
+xlabel={Frequency ($f_0$)},
+ylabel={Return Loss (dB)},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$0.65$,$1$,$1.35$,$1.65$,$2$},
+scaled x ticks = false,
+%ytick={-1.4612e+03,-730.6029,0,730.6029,1.4612e+03},
+%title=Decay of Electric Field along the Single Slot and Slot Array under different dielectrics,
+%xticklabel=\empty,
+% yticklabel=\empty,
+%xlabel={$Wave vector (K_{x}a_{x}/2\pi)$},
+%ylabel={$Wave vector (K_{y}a_{y}/2\pi)$},
+% extra x ticks={-78.54,78.54},
+% extra y ticks={-78.54,78.54},
+% extra x tick labels={$-0.0625$,$0.0625$},
+% extra y tick labels={$-0.0625$,$0.0625$},
+% smooth,
+grid=major,
+%legend entries={ Real($Z_{in}$)}
+];
+\addplot [thick,color=teal, mark=o, solid] table [col sep=comma] {Figures/Chapter3/fig_Zin/returnloss.csv};
+
+\end{axis}
+\end{tikzpicture}

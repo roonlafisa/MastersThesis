@@ -1,0 +1,63 @@
+\begin{tikzpicture}
+\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_smallercorner_polar/rectplot_freq4_uncomp.csv}{\loadeddatatwo}
+\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_smallercorner_polar/rectplot_freq6_uncomp.csv}{\loadeddatathree}
+\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_smallercorner_polar/rectplot_freq8_uncomp.csv}{\loadeddatafour}
+\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_smallercorner_polar/rectplot_freq10_uncomp.csv}{\loadeddatafive}
+\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_smallercorner_polar/rectplot_freq12_uncomp.csv}{\loadeddatasix}
+\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_smallercorner_polar//rectplot_freq14_uncomp.csv}{\loadeddataseven}
+\begin{polaraxis}[
+  grid=both,
+  legend pos=south east,
+  major grid style={dotted},  
+  minor grid style={dotted},  
+  minor x tick num=1,
+  minor y tick num=1,
+ % title style={at={(0.5,0)},anchor=north,yshift=-25},
+  %title = (a) Frequency {=} 1st Hz,
+  xtick={0,30,...,330},
+  extra x ticks={60},
+  extra tick style={grid=major, grid style={solid, black, ultra thick}},
+  %ytick={0,10,...,60},
+  yticklabels={},
+  ymin=0,
+  ymax=70
+]
+%\addlegendentry{Uncompensated};
+\addplot[
+  data cs=polar,
+  red,
+  samples=500
+] table[x index=0,y index=1] {\loadeddatatwo};
+\addplot[
+  data cs=polar,
+  blue,
+  samples=500
+] table[x index=0,y index=1] {\loadeddatathree};
+\addplot[
+  data cs=polar,
+  green,
+  samples=500
+] table[x index=0,y index=1] {\loadeddatafour};
+\addplot[
+  data cs=polar,
+  yellow,
+  samples=500
+] table[x index=0,y index=1] {\loadeddatafive};
+\addplot[
+  data cs=polar,
+  magenta,
+  samples=500
+] table[x index=0,y index=1] {\loadeddatasix};
+\addplot[
+  data cs=polar,
+  black,
+  samples=500
+] table[x index=0,y index=1] {\loadeddataseven};
+\addlegendentry{$f$ = $0.4 f_0$};
+\addlegendentry{$f$ = $0.6 f_0$};
+\addlegendentry{$f$ = $0.8 f_0$};
+\addlegendentry{$f$ = $1.0 f_0$};
+\addlegendentry{$f$ = $1.2 f_0$};
+\addlegendentry{$f$ = $1.4 f_0$};
+\end{polaraxis}
+\end{tikzpicture}

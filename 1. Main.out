@@ -1,0 +1,63 @@
+\BOOKMARK [0][-]{chapter*.1}{Abstract}{}% 1
+\BOOKMARK [0][-]{chapter*.2}{Preface}{}% 2
+\BOOKMARK [0][-]{section*.3}{Table of Contents}{}% 3
+\BOOKMARK [0][-]{section*.4}{List of Figures}{}% 4
+\BOOKMARK [0][-]{chapter*.5}{Acknowledgements}{}% 5
+\BOOKMARK [0][-]{chapter*.6}{Dedication}{}% 6
+\BOOKMARK [0][-]{chapter.1}{1 Introduction}{}% 7
+\BOOKMARK [1][-]{section.1.1}{1.1 Antennas}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.2}{1.2 Broadband Antennas}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.3}{1.3 Leaky-wave antennas}{chapter.1}% 10
+\BOOKMARK [1][-]{section.1.4}{1.4 Transformation electromagnetics}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.5}{1.5 Proposed design}{chapter.1}% 12
+\BOOKMARK [2][-]{subsection.1.5.1}{1.5.1 Motivation and objective}{section.1.5}% 13
+\BOOKMARK [2][-]{subsection.1.5.2}{1.5.2 Design specifications}{section.1.5}% 14
+\BOOKMARK [1][-]{section.1.6}{1.6 Thesis organization}{chapter.1}% 15
+\BOOKMARK [0][-]{chapter.2}{2 Background}{}% 16
+\BOOKMARK [1][-]{section.2.1}{2.1 Electromagnetics for antenna analysis}{chapter.2}% 17
+\BOOKMARK [1][-]{section.2.2}{2.2 Antenna radiation parameters}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.3}{2.3 Leaky-wave antennas}{chapter.2}% 19
+\BOOKMARK [2][-]{subsection.2.3.1}{2.3.1 Fast and slow-wave radiation}{section.2.3}% 20
+\BOOKMARK [2][-]{subsection.2.3.2}{2.3.2 Radiation characteristics}{section.2.3}% 21
+\BOOKMARK [1][-]{section.2.4}{2.4 Slot-line leaky-wave antenna}{chapter.2}% 22
+\BOOKMARK [2][-]{subsection.2.4.1}{2.4.1 Principle of radiation}{section.2.4}% 23
+\BOOKMARK [2][-]{subsection.2.4.2}{2.4.2 Fixed-beam leaky-wave antennas}{section.2.4}% 24
+\BOOKMARK [1][-]{section.2.5}{2.5 Transformation electromagnetics}{chapter.2}% 25
+\BOOKMARK [2][-]{subsection.2.5.1}{2.5.1 Form invariance property of Maxwell's equations}{section.2.5}% 26
+\BOOKMARK [2][-]{subsection.2.5.2}{2.5.2 Conformal mappings in transformation optics}{section.2.5}% 27
+\BOOKMARK [2][-]{subsection.2.5.3}{2.5.3 Inverse transformation}{section.2.5}% 28
+\BOOKMARK [0][-]{chapter.3}{3 The Linear Gradient Design}{}% 29
+\BOOKMARK [1][-]{section.3.1}{3.1 Wave propagation in graded-index dielectrics}{chapter.3}% 30
+\BOOKMARK [1][-]{section.3.2}{3.2 Leaky-wave source - single slot vs slot array}{chapter.3}% 31
+\BOOKMARK [1][-]{section.3.3}{3.3 Antenna design principle}{chapter.3}% 32
+\BOOKMARK [1][-]{section.3.4}{3.4 Antenna properties}{chapter.3}% 33
+\BOOKMARK [2][-]{subsection.3.4.1}{3.4.1 Leaky-wave radiation inside graded-index half-space}{section.3.4}% 34
+\BOOKMARK [2][-]{subsection.3.4.2}{3.4.2 Obtaining radiation in free-space}{section.3.4}% 35
+\BOOKMARK [1][-]{section.3.5}{3.5 Antenna characterization and simulation results}{chapter.3}% 36
+\BOOKMARK [1][-]{section.3.6}{3.6 Limitation of the design}{chapter.3}% 37
+\BOOKMARK [0][-]{chapter.4}{4 Geometric Compensation Technique}{}% 38
+\BOOKMARK [1][-]{section.4.1}{4.1 Numerical conformal transformation}{chapter.4}% 39
+\BOOKMARK [2][-]{subsection.4.1.1}{4.1.1 Linking to the antenna design}{section.4.1}% 40
+\BOOKMARK [2][-]{subsection.4.1.2}{4.1.2 Validation of simulations}{section.4.1}% 41
+\BOOKMARK [1][-]{section.4.2}{4.2 Geometric compensation technique}{chapter.4}% 42
+\BOOKMARK [2][-]{subsection.4.2.1}{4.2.1 Principle}{section.4.2}% 43
+\BOOKMARK [2][-]{subsection.4.2.2}{4.2.2 Linear phase gradient at the radiating interface}{section.4.2}% 44
+\BOOKMARK [2][-]{subsection.4.2.3}{4.2.3 Determining the source domain geometry}{section.4.2}% 45
+\BOOKMARK [2][-]{subsection.4.2.4}{4.2.4 Optically transform the source domain into target domain}{section.4.2}% 46
+\BOOKMARK [1][-]{section.4.3}{4.3 Phase-discrepancies in the transformation process}{chapter.4}% 47
+\BOOKMARK [1][-]{section.4.4}{4.4 Compensating the geometry}{chapter.4}% 48
+\BOOKMARK [1][-]{section.4.5}{4.5 Remarks}{chapter.4}% 49
+\BOOKMARK [1][-]{section.4.6}{4.6 Summary}{chapter.4}% 50
+\BOOKMARK [0][-]{chapter.5}{5 Broad Band Fixed-beam Leaky Wave Antenna}{}% 51
+\BOOKMARK [1][-]{section.5.1}{5.1 Design principle}{chapter.5}% 52
+\BOOKMARK [1][-]{section.5.2}{5.2 Design considerations}{chapter.5}% 53
+\BOOKMARK [1][-]{section.5.3}{5.3 Design of the superstrate}{chapter.5}% 54
+\BOOKMARK [1][-]{section.5.4}{5.4 Antenna performance}{chapter.5}% 55
+\BOOKMARK [2][-]{subsection.5.4.1}{5.4.1 Fixed-beam broad band performance}{section.5.4}% 56
+\BOOKMARK [2][-]{subsection.5.4.2}{5.4.2 Improvement of radiation pattern using geometric compensation technique}{section.5.4}% 57
+\BOOKMARK [1][-]{section.5.5}{5.5 Center-fed design with a back reflector}{chapter.5}% 58
+\BOOKMARK [1][-]{section.5.6}{5.6 Summary}{chapter.5}% 59
+\BOOKMARK [0][-]{chapter.6}{6 Conclusion}{}% 60
+\BOOKMARK [1][-]{section.6.1}{6.1 Summary of work}{chapter.6}% 61
+\BOOKMARK [1][-]{section.6.2}{6.2 Future directions}{chapter.6}% 62
+\BOOKMARK [0][-]{chapter*.21}{Bibliography}{}% 63

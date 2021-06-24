@@ -1,0 +1,143 @@
+\begin{tikzpicture}
+   \begin{groupplot}[group style={
+                      group name=myplot,
+                      group size= 1 by 5, horizontal sep=2cm, vertical sep=1.0cm},height=3.5cm, width=7.5cm]
+     
+ 
+         \nextgroupplot[ymin=20,
+ymax=55,
+title style={at={(0.5,0)},anchor=north,yshift=-10,xshift=70},
+title = (a),
+%xlabel={Frequency},
+ylabel={$\theta_{rad}$ (deg)},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$0.65f_0$,$f_0$,$1.35f_0$,$1.65f_0$,$2f_0$},
+        scaled x ticks = false,              x tick label style={rotate=45, anchor=east},
+]
+
+                \addplot[blue, thick, mark = square]table [col sep=comma]  {Figures/Chapter3/fig_smallercorner_characterize/A_radiation_angle.csv};\label{plots:plot1}
+                \addplot[dgreen, thick, mark = square*, dashed]table [col sep=comma]  {Figures/Chapter3/fig_smallercorner_characterize/A_radiation_angle_reflector.csv};\label{plots:plot2}
+                \addplot[red, thick, mark=o] table [col sep=comma] {Figures/Chapter3/fig_smallercorner_characterize/A_radiation_angle_uncomp.csv};\label{plots:plot3}
+                
+             %   \addplot[blue, thick, mark = square]table [col sep=comma]  {Figures/Chapter3/fig_smallercorner_characterize/A_corner_radiation_angle.csv};\label{plots:plot4}
+             %   \addplot[red, thick, mark=o] table [col sep=comma] {Figures/Chapter3/fig_smallercorner_characterize/A_corner_radiation_angle_uncomp.csv};\label{plots:plot5}
+
+
+
+
+                       
+        \nextgroupplot[ymin=5,
+ymax=35,
+%xlabel={Frequency},
+title style={at={(0.5,0)},anchor=north,yshift=-10,xshift=70},
+title = (b),
+ylabel={3dB BW (deg)},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$0.65f_0$,$f_0$,$1.35f_0$,$1.65f_0$,$2f_0$},
+        scaled x ticks = false,              x tick label style={rotate=45, anchor=east},
+]
+
+
+                \addplot[blue, thick, mark = square] table [col sep=comma] {Figures/Chapter3/fig_smallercorner_characterize/B_3db_beamwidth.csv};
+                \addplot[dgreen, thick, mark = square*, dashed] table [col sep=comma] {Figures/Chapter3/fig_smallercorner_characterize/B_3db_beamwidth_reflector.csv};
+                \addplot[red, thick, mark=o] table [col sep=comma]  {Figures/Chapter3/fig_smallercorner_characterize/B_3db_beamwidth_uncomp.csv};
+                
+              %  \addplot[blue, thick, mark = square]table [col sep=comma]  {Figures/Chapter3/fig_smallercorner_characterize/B_corner_3db_beamwidth.csv};
+             %   \addplot[red, thick, mark=o] table [col sep=comma] {Figures/Chapter3/fig_smallercorner_characterize/B_corner_3db_beamwidth_uncomp.csv};
+
+
+
+
+        
+        \nextgroupplot[ymin=5,
+ymax=95,
+%xlabel={Frequency},
+title style={at={(0.5,0)},anchor=north,yshift=-10,xshift=70},
+title = (c),
+ylabel={SLL ($\%$)},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$0.65f_0$,$f_0$,$1.35f_0$,$1.65f_0$,$2f_0$},
+        scaled x ticks = false,              x tick label style={rotate=45, anchor=east},
+]
+
+                \addplot[blue, thick, mark = square]  table [col sep=comma]{Figures/Chapter3/fig_smallercorner_characterize/C_sidelobe.csv};
+                \addplot[dgreen, thick, mark = square*, dashed]  table [col sep=comma]{Figures/Chapter3/fig_smallercorner_characterize/C_sidelobe_reflector.csv};
+                \addplot[red, thick, mark=o]  table [col sep=comma] {Figures/Chapter3/fig_smallercorner_characterize/C_sidelobe_uncomp.csv};
+                
+             %    \addplot[blue, thick, mark = square]table [col sep=comma]  {Figures/Chapter3/fig_smallercorner_characterize/C_corner_sidelobe.csv};
+             %   \addplot[red, thick, mark=o] table [col sep=comma] {Figures/Chapter3/fig_smallercorner_characterize/C_corner_sidelobe_uncomp.csv};
+
+
+
+ 
+        
+        \nextgroupplot[ymin=25,
+ymax=100,
+%xlabel={Frequency},
+title style={at={(0.5,0)},anchor=north,yshift=-10,xshift=70},
+title = (d),
+ylabel={BLL ($\%$)},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$0.65f_0$,$f_0$,$1.35f_0$,$1.65f_0$,$2f_0$},
+        scaled x ticks = false,              x tick label style={rotate=45, anchor=east},
+]
+
+                \addplot[blue, thick, mark = square] table [col sep=comma] {Figures/Chapter3/fig_smallercorner_characterize/D_backlobe.csv};
+                \addplot[dgreen, thick, mark = square*, dashed] table [col sep=comma] {Figures/Chapter3/fig_smallercorner_characterize/D_backlobe_reflector.csv};
+                \addplot[red, thick, mark=o] table [col sep=comma]  {Figures/Chapter3/fig_smallercorner_characterize/D_backlobe_uncomp.csv};
+            
+            %    \addplot[blue, thick, mark = square]table [col sep=comma]  {Figures/Chapter3/fig_smallercorner_characterize/D_corner_backlobe.csv};
+              %  \addplot[red, thick, mark=o] table [col sep=comma] {Figures/Chapter3/fig_smallercorner_characterize/D_corner_backlobe_uncomp.csv};
+                
+
+
+
+ 
+ 
+    \nextgroupplot[ymin=0,
+ymax=25,
+xlabel={Frequency},
+ylabel={Directivity (linear)},
+title style={at={(0.5,0)},anchor=north,yshift=-10,xshift=70},
+title = (e),
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$0.65f_0$,$f_0$,$1.35f_0$,$1.65f_0$,$2f_0$},
+        scaled x ticks = false,              x tick label style={rotate=45, anchor=east},
+]
+
+                \addplot[blue, thick, mark = square] table [col sep=comma] {Figures/Chapter3/fig_smallercorner_characterize/E_directivity.csv};
+                \addplot[dgreen, thick, mark = square*, dashed] table [col sep=comma] {Figures/Chapter3/fig_smallercorner_characterize/E_directivity_reflector.csv};
+                \addplot[red, thick, mark=o] table [col sep=comma]  {Figures/Chapter3/fig_smallercorner_characterize/E_directivity_uncomp.csv};
+                
+            %    \addplot[blue, thick, mark = square]table [col sep=comma]  {Figures/Chapter3/fig_smallercorner_characterize/E_corner_directivity.csv};
+            %    \addplot[red, thick, mark=o] table [col sep=comma] {Figures/Chapter3/fig_smallercorner_characterize/E_corner_directivity_uncomp.csv};
+                
+                
+            
+                
+    \end{groupplot}
+
+
+   
+   % \path (myplot c1r1.outer north west)% plot in column 1 row 1
+   %       -- node[anchor=south,rotate=90] {throughput}% label midway
+      %    (myplot c1r2.outer south west)% plot in column 1 row 4
+    ;
+% legend
+\path (myplot c1r1.north|-current bounding box.north)-- 
+      coordinate(legendpos)
+      (myplot c1r1.south|-current bounding box.north);
+\matrix[
+    matrix of nodes,
+    anchor=south,
+    draw,
+    inner sep=0.2em,
+    draw
+  ]at([yshift=2ex]legendpos)
+  { \ref{plots:plot1}& Compensated: Centre-fed &[5pt]\\
+    \ref{plots:plot2}& Compensated: Centre-fed with Back Reflector &[5pt]\\
+   % \ref{plots:plot4}& Compensated: Corner-fed  &[5pt]\\
+    \ref{plots:plot3}& Uncompensated: Centre-fed &[5pt]\\
+   % \ref{plots:plot5}& Uncompensated: Corner-fed &[5pt]\\
+   };
+\end{tikzpicture}

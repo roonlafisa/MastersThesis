@@ -1,0 +1,148 @@
+\documentclass[masc,oneside,12pt]{ubcthesis}%msc, phd, masc, ma, or meng
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      ╭━━━┳━━━┳━━━┳━╮╱╭┳━━━━╮╭━━━┳━━━┳━━━┳━━━╮
+%      ┃╭━━┫╭━╮┃╭━╮┃┃╰╮┃┃╭╮╭╮┃┃╭━╮┃╭━╮┃╭━╮┃╭━━╯
+%      ┃╰━━┫╰━╯┃┃╱┃┃╭╮╰╯┣╯┃┃╰╯┃╰━╯┃┃╱┃┃┃╱╰┫╰━━╮
+%      ┃╭━━┫╭╮╭┫┃╱┃┃┃╰╮┃┃╱┃┃╱╱┃╭━━┫╰━╯┃┃╭━┫╭━━╯
+%      ┃┃╱╱┃┃┃╰┫╰━╯┃┃╱┃┃┃╱┃┃╱╱┃┃╱╱┃╭━╮┃╰┻━┃╰━━╮
+%      ╰╯╱╱╰╯╰━┻━━━┻╯╱╰━╯╱╰╯╱╱╰╯╱╱╰╯╱╰┻━━━┻━━━╯
+%      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\institution{The University Of British Columbia}
+\faculty{THE COLLEGE OF GRADUATE STUDIES}
+\institutionaddress{Okanagan}
+
+
+
+\title{A Broadband Fixed-beam Leaky-wave Antenna Based on Transformation Electromagnetics}
+%\subtitle{With a Subtitle}
+\author{Asif Al Noor} 
+\copyrightyear{2016}
+\submitdate{October 2016} % date of approved thesis
+\program{Electrical Engineering}%or Mathematics, or Interdisciplinary Studies
+%\previousdegree{B.Sc., Islamic University of Technology, 2013}
+
+% ================================================================================
+
+
+\usepackage{ubcostyle} %loads packages
+
+
+% ===================================================================
+% CHANGE THE FOLLOWING COMMANDS ACCORDING TO YOUR NEEDS
+% ===================================================================
+\newcommand{\R}{\mathbb{R}}   %real number
+\newcommand{\Z}{\mathbb{Z}}   %integers
+\newcommand{\C}{\mathbb{C}}   %complex numbers
+
+\newcommand{\dom}{\operatorname{dom}}
+\providecommand{\TT}[1]{\Theta\left(#1\right)} % big-Theta
+\providecommand{\OO}[1]{\mathcal{O}\left(#1\right)} % big-Oh
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      ╭━━━━┳╮╱╭┳━━━┳━━━┳━━┳━━━╮╭━━╮╭━━━┳━━━┳╮╱╱╭╮
+%      ┃╭╮╭╮┃┃╱┃┃╭━━┫╭━╮┣┫┣┫╭━╮┃┃╭╮┃┃╭━╮┣╮╭╮┃╰╮╭╯┃
+%      ╰╯┃┃╰┫╰━╯┃╰━━┫╰━━╮┃┃┃╰━━╮┃╰╯╰┫┃╱┃┃┃┃┃┣╮╰╯╭╯
+%      ╱╱┃┃╱┃╭━╮┃╭━━┻━━╮┃┃┃╰━━╮┃┃╭━╮┃┃╱┃┃┃┃┃┃╰╮╭╯
+%      ╱╱┃┃╱┃┃╱┃┃╰━━┫╰━╯┣┫┣┫╰━╯┃┃╰━╯┃╰━╯┣╯╰╯┃╱┃┃
+%      ╱╱╰╯╱╰╯╱╰┻━━━┻━━━┻━━┻━━━╯╰━━━┻━━━┻━━━╯╱╰╯
+%      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Uncomment the next line if there are more than one appendix
+%\renewcommand*\appendixname{Appendices}
+
+\begin{document}
+
+\frontmatter                    % Mandatory
+\maketitle                      % Mandatory
+%----------------------------------------------------
+%	ABSTRACT AND PREFACE
+%----------------------------------------------------
+\input{./Preliminaries/Committee}
+
+%----------------------------------------------------
+%	ABSTRACT AND PREFACE
+%----------------------------------------------------
+\input{./Preliminaries/Abstract}
+\input{./Preliminaries/Preface}
+%----------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------
+\newpage
+\phantomsection \label{tableofcontent}%set anchor at right location
+\addcontentsline{toc}{chapter}{\contentsname}
+\tableofcontents                % Mandatory: generate toc
+%
+%\newpage 
+%\phantomsection \label{listoftab}%set anchor at right location
+%\addcontentsline{toc}{chapter}{\listtablename}
+%\listoftables                   % Mandatory if thesis has tables
+%
+\newpage
+\phantomsection \label{listoffig}%set anchor at right location
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures                  % Mandatory if thesis has figures
+
+%----------------------------------------------------
+%	ACKNOWLEDGEMENTS AND DEDICATION
+%----------------------------------------------------
+
+\input{./Preliminaries/Acknowledgements}
+\input{./Preliminaries/Dedication}
+\mainmatter
+%----------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------
+\input{./Chapters/Chapter0}
+\input{./Chapters/Chapter1}
+\input{./Chapters/Chapter2} 
+\input{./Chapters/Chapter3}
+\input{./Chapters/Chapter4} 
+\input{./Chapters/Chapter5}
+
+%----------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------
+\clearpage
+\newpage 
+\pagestyle{fancy}\chead{Bibliography}\rhead{}\cfoot{}\rfoot{\thepage}
+
+%\nocite{*}
+\bibliographystyle{IEEEtran} %for natbib
+\bibliography{bibliography}%name of your .bib file %for natbib
+%\printbibliography %for biblatex
+
+
+
+
+
+%----------------------------------------------------
+%	APPENDICES
+%----------------------------------------------------
+%\newpage
+%pagestyle{headings}
+%\addtocontents{toc}{%f
+%\protect\renewcommand*\protect\cftchappresnum{\appendixname~}}
+
+%if you have multiple appendices, there is a line in the title page section that enables "Appendix" --> "Appendeces"
+%\appendix 
+%\addappheadtotoc %uses the current page number when it makes the entry in the ToC
+%\appendixpage 
+
+%\addtocontents{toc}{
+%\setlength{\cftbeforechapskip}{\cftbeforesecskip}
+%\setlength{\cftchapindent}{\cftsecindent}
+%\protect\renewcommand{\cftchapfont}{\cftsecfont}
+%\protect\renewcommand{\protect\cftchapdotsep}{\cftsecdotsep}}
+
+
+
+%\input{./Chapters/Chapter6} 
+
+\end{document}
+\endinput

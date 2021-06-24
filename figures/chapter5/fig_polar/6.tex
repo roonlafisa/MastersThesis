@@ -1,0 +1,32 @@
+\begin{tikzpicture}[scale=\scalingfactor]
+\pgfplotstableread[col sep=comma]{Figures/Chapter5/fig_polar/normalized_H32_6.csv}{\loadeddataone}
+%\pgfplotstableread[col sep=comma]{Figures/Chapter3/fig_smallercorner_polar/rectplot_freq2_uncomp.csv}{\loadeddatatwo}
+\begin{polaraxis}[
+  grid=both,
+  legend pos=south west,
+  major grid style={dotted},  
+  minor grid style={dotted},  
+  minor x tick num=1,
+  minor y tick num=1,
+  title style={at={(0.5,0)},anchor=north,yshift=-25},
+  title = (c) Frequency {=} $f_0$,
+  xtick={0,30,...,330},
+%  ytick={0,10,...,60},
+  yticklabels={},
+  ymin=0,
+  ymax=1
+]
+%\addlegendentry{Uncompensated};
+%\addplot[
+%  data cs=polar,
+%  red,
+%  samples=500
+%] table[x index=0,y index=2] {\loadeddatatwo};
+\addplot[
+  data cs=polar,
+  blue,
+  samples=500
+] table[x index=0,y index=1] {\loadeddataone};
+%\addlegendentry{Compensated};
+\end{polaraxis}
+\end{tikzpicture}

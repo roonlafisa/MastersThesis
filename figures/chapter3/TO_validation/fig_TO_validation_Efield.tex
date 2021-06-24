@@ -1,0 +1,38 @@
+\begin{tikzpicture}
+
+\begin{axis}[transpose legend,
+legend columns=1,
+legend style={at={(0.78,1)},anchor=north},
+cycle multi list={%
+{red,mark={}},
+{blue,solid,mark={}},
+},
+ymin=0,
+ymax=1,
+xmin=0,
+xmax=.6,
+xlabel={Horizontal distance in the initial domain $(\lambda_0)$},
+ylabel={Normalised Electric field ($V/m$)},
+%xtick={0,1,2,3,4,5,6},
+%ytick={-1.4612e+03,-730.6029,0,730.6029,1.4612e+03},
+%xticklabels={$0$,$1$,$2$,$3$,$4$,$5$,$6$},
+%title=Decay of Electric Field along the Single Slot and Slot Array under different dielectrics,
+%xticklabel=\empty,
+% yticklabel=\empty,
+%xlabel={$Wave vector (K_{x}a_{x}/2\pi)$},
+%ylabel={$Wave vector (K_{y}a_{y}/2\pi)$},
+% extra x ticks={-78.54,78.54},
+% extra y ticks={-78.54,78.54},
+% extra x tick labels={$-0.0625$,$0.0625$},
+% extra y tick labels={$-0.0625$,$0.0625$},
+% smooth,
+grid=major,
+%legend entries={$\epsilon_r = 2$ (single slot),$\epsilon_r = 4$ (single slot),$\epsilon_r = 2$ (slot array),$\epsilon_r = 4$ (slot array)}
+legend entries={Medium 1, Medium 2}
+];
+\addplot [thick, color=dbrown,mark=o, solid] table [col sep=comma] {Figures/Chapter3/TO_validation/xy.csv};
+
+\addplot [thick, color=dgreen, mark=diamond, solid] table [col sep=comma] {Figures/Chapter3/TO_validation/xprimeyprime.csv};
+
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,343 @@
+% Chapter 6
+
+
+\chapter{The Linear Gradient Design} % Main chapter title
+\label{Chapter5}
+
+An inhomogeneous medium is characterized by a spatially varying refractive index. For high frequency applications, the terms \textit{gradient-index} or \textit{graded index} is typically used to refer to isotropic, inhomogeneous, and non-magnetic media. In the preliminary design process of this research, a fixed-beam leaky-wave antenna was intended to be implemented with 1D graded-index material slab. This chapter describes the technique that was followed during the initial design process. Simulation results of the initially designed antenna will also be presented.
+
+
+\section{Wave propagation in graded-index dielectrics}
+Evolution of an electromagnetic wave in a uniform media is well-known and common in antenna applications. However, analysis of optical fibers, liquid crystals, weakly magnetized plasma, condensed matter physics, etc requires study of electromagnetic waves in anisotropic inhomogeneous media. The analytic solution of Maxwell's equation in an inhomogeneous media is difficult to achieve. Since 1970s, wave propagation in inhomogeneous media has been analyzed using geometric optics, the study of waves through \textit{rays} \cite{Smithgall1973, Marcuse1973, Bliokh2007} \cite{Marcuse1973}. Analytic solutions using geometric optics are highly case-specific and follow different techniques for linear, axial, radial, and spherical gradients \cite{merchand2012} \cite{Melorose2015}.  However, ray optics can only describe wave propagation accurately within the geometric optics limit. That is, the propagating wave must have a very short wavelength as compared to the other dimensions of the problem \cite{nieto1991}. The analyses on this thesis are performed on structures having dimensions comparable to the wavelength. Therefore, ray optics is not used for the investigations. 
+
+\section{Leaky-wave source - single slot vs slot array} 
+The physical length of the leaky-wave antenna is related to the leakage rate of the propagating leaky-wave mode along the slot-line. Being the source of the leaky-wave radiation, the slot is required to be long enough to radiate no less than $90\%$ of input power into the dielectric for wide input impedance bandwidth and improved sidelobe level behavior of the antenna \cite{Jackson2008}. Therefore, a higher  leakage  rate  of  the leaky-wave  mode or a matched termination is recommended for shorter antennas. Since the antenna proposed in this thesis is not terminated with matched resistors, the leakage rate of the leaky-mode inside the slot had to be investigated to ensure it was sufficient for the length of the proposed design.
+
+After observing the leakage rate for different slot apertures, it can be stated that a slot array demonstrates higher decay relative to a single slot-line. A corner-fed slot with a width of $\lambda_0 /50$ under a uniform dielectric half-space with $\epsilon_r = 2$, as a single element and as an infinite array element with a separation of $\lambda_0 /10$, was simulated using COMSOL Multiphysics' finite element solver. The generated transverse electric field of the leaky-wave radiation from a single slot and a slot array is shown in Fig. \ref{fig:field_array}. Figure \ref{fig:decay} demonstrates that the leakage rate of the transverse electric field for an infinite array is more than that of a single slot. A infinite slot array is therefore selected as the leaky-wave source for the theoretical design of the proposed antenna. 
+
+
+\begin{figure} [t!]
+\centering
+\noindent
+\hspace*{\fill}%
+  \mbox{\subfloat[]{
+            \begin{overpic}[trim={.2cm -.5cm .3cm .7cm},clip,scale=0.50, keepaspectratio=true]{Figures/Chapter3/fig_fields/single_field_dielectric.png}
+            	\put(-4,41){\footnotesize \rotatebox{90}{$v (\lambda_0)$}}
+            	\put(37,0){\footnotesize {$u (\lambda_0)$}}
+            \end{overpic}
+ 		}}
+\hspace*{\fill}%			
+ \mbox{\subfloat[]{
+           \begin{overpic}[trim={.2cm -.5cm .5cm .7cm},clip,scale=0.50, keepaspectratio=true]{Figures/Chapter3/fig_fields/field_dielectric.png}
+           	\put(-6,41){\footnotesize \rotatebox{90}{$v (\lambda_0)$}}
+           	\put(37,0){\footnotesize {$u (\lambda_0)$}}
+           	\linethickness{.7mm}
+	 	    \put(-20,-7){\line(2,0){9}}
+	 	    \put(-18,-4){\footnotesize $\lambda_0$}
+ 	    %   \put(0,30){\vector(2,0){10}}
+		%	\put(0,30){\vector(0,2){10}}
+		%	\put(10,32){\footnotesize $x$}
+		%	\put(-00,42){\footnotesize $y$}
+		%	\put(-1.5,29.3){\footnotesize $\otimes$}
+		%	\put(-2,30){\footnotesize $z$}
+			
+			\end{overpic}
+	   }}
+ 	\hspace*{\fill}%
+ 	
+
+
+  \caption[Field plot of the slot-line radiation into denser dielectric half-space for a single slot and an infinite slot array.]{(color inline) Normalized field plot of the slot-line radiation into denser dielectric half-space for a single slot (a) and an infinite slot array (b). The denser dielectric medium consists of a relative permittivity of 2 and the slot width is $\lambda_0/50$. The black line indicates one wavelength in free-space.}
+\label{fig:field_array}
+\end{figure}
+%
+\begin{figure} []
+\pgfplotsset{compat=1.5,
+width=7.5cm,
+height=4.64cm,
+tick label style={font=\small},
+label style={font=\small},
+legend style={font=\small},
+% tick style={thick}
+}
+  \begin{center}
+ \input{Figures/Chapter3/fig_decay/fig_decay.tex}
+ \end{center}
+  \caption[Normalized absolute field values along the direction of propagation for a single slot and an infinite slot array located underneath a dielectric half-space.]{(color inline) Normalized absolute value of the transverse electric field along the direction of propagation for a single slot (brown) and an infinite slot array (green) located underneath a dielectric half-space with relative permittivity $\epsilon_r = 2$.}
+\label{fig:decay}
+\end{figure}
+%
+
+\section{Antenna design principle}
+
+According to the analysis of slot-lines under a uniform dielectric media in section \ref{sec:slotLW}, the slot-line emits leaky-wave radiation into the upper dielectric medium \cite{Neto2003}\cite{Maci2004}. If the lower dielectric medium is free-space and the medium above is uniform dielectric, the leaky-wave radiation generates at an angle (from broadside) much larger than that required to be coupled into free-space. The phenomenon is demonstrated in Fig. \ref{fig:traplw}  where a uniform dielectric slab is placed on top of a slot-line. The radiation from the slot is generated at an angle $\theta$ which is larger than the that required to couple into free-space. The leaky-wave radiation remains trapped inside the dielectric medium due to total internal reflection. The initial stages of the research project was aimed to reduce the angle to below the critical angle through the use of graded-index dielectric slab. 
+
+For the sake of implementation of a fixed-beam leaky-wave antenna, a non-magnetic graded dielectric slab can be placed on top of a slot-line. The distribution of refractive index is considered to be linearly decreasing along the length, as presented in Fig. \ref{fig:graded_propagation}. The slab had a maximum index at $x=0$ and minimum index (unity) at the $x=L$, where $L$ was the length of the slab. The leaky-wave radiation originated from underlying slot-line encounters gradual decrease in refractive index as it propagates through the slab. The change of refractive index causes the propagating wave to bend towards the region where the refractive index is higher, as presented in Fig. \ref{fig:graded_propagation}. The bending can be described by Snell's law which states that if a wave is incident into an optically lighter medium from a denser medium, the light bends away from the normal. 
+\begin{figure} [t!]
+\centering
+\noindent
+\begin{overpic}[scale=0.5]{Figures/Chapter2/fig_metaprism/metaprism_1}
+\put(10,22){\footnotesize $\theta$ }
+\put(28,43){\footnotesize Uniform dielectric slab}
+\end{overpic}
+\caption{A diagram demonstrating that a slot-generated leaky-wave radiation remains trapped when emitted into a rectangular uniform dielectric superstrate.}
+\label{fig:traplw} 
+\end{figure}
+
+\begin{figure} []
+\centering
+
+	\begin{overpic}[scale=0.4]{Figures/Chapter5/fig_graded_propagation/graded_propagation}
+			\put(46,18){\footnotesize Graded dielectric slab}
+			\put(52,46){\footnotesize $\theta_{\mathrm{rad}}$}
+			\put(102,55){\footnotesize $x$}
+			\put(93,52){\footnotesize $L$}
+			\put(60,2){\footnotesize Slot line}
+			\put(0,89){\footnotesize $n$}
+			\put(50,73){\footnotesize profile of index}
+			\put(-12,80){\footnotesize $n_{\mathrm{max}}$}
+			\put(102,0){\vector(0,2){38}}
+			\put(102,38){\vector(0,-2){38}}
+			\put(104,16){\footnotesize $H$}
+  \end{overpic}
+
+  \caption[Bending of leaky-wave inside the graded dielectric slab.]{Bending of leaky-wave inside the graded dielectric slab. The solid line presents the propagation of the wave inside the inhomogeneous slab. The dashed line represents the propagation path if the slab was a homogeneous dielectric slab. The profile of refractive index is shown in the graph above. }
+\label{fig:graded_propagation}
+\end{figure}
+
+At the interface of the graded-dielectric slab, the leaky-wave (solid line) is incident with an angle smaller than it originally emitted (dashed line) from the slab. The gradient of refractive index needs to be chosen in such a way that the bending of the wave not only couples into free-space, but also radiates at a desired angle. As presented in Fig. \ref{fig:graded_propagation}, the radiated wave creates a primary beam at an angle $\theta_{\mathrm{rad}}$ into free-space. The slot-generated radiation is independent of frequency, assuming material parameters are not dispersive. Therefore, the primary beam of the antenna is expected be fixed with frequency variations. The maximum refractive index $n_{\mathrm{max}}$, permittivity gradient, and the height of the slab $\mathrm{H}$ were varied to find the optimum height $\mathrm{H}$ for a suitable direction of radiation from the antenna.
+
+\section{Antenna properties}
+
+The rectangular graded-index dielectric slab was the principal component of the antenna. The antenna performance depends on the dimension and material property of the slab. As demonstrated in Fig. \ref{fig:graded_propagation}, the length and height of the slab is $L$ and $H$, respectively with a linearly decreasing refractive index with the increase of $L$. Given a specific permittivity gradient, the slab height $H$ is the key parameter of the antenna since direction of radiation $\theta_{\mathrm{rad}}$ directly depends on $H$. 
+
+\begin{figure} [t!]
+\centering
+
+	\begin{overpic}[scale=0.6]{Figures/Chapter5/fig_graded_characterization/graded_characterization2}
+	        \put(38,-3){\footnotesize Point of excitation}
+			\put(100,40){\footnotesize Wave-fronts}
+			\put(100,36){\footnotesize parallel to}
+			\put(100,32){\footnotesize interface}
+			\put(80,3){\footnotesize Slot line}
+			\put(3,3){\footnotesize Slot line}
+			\put(57,8){\footnotesize $A$}
+			\put(42,17){\footnotesize $B$}
+			
+			\put(-10,20){\vector(2,0){10}}
+			\put(-10,20){\vector(0,2){10}}
+			\put(0,22){\footnotesize $x$}
+			\put(-10,32){\footnotesize $y$}
+			
+			\put(68,2){\vector(0,2){7}}
+			\put(68,7){\vector(0,-2){5}}
+			\put(69,4){\footnotesize $H_\mathrm{b}$}
+			
+			\put(57,63){\footnotesize Symmetry}
+		
+  \end{overpic}
+  \caption[Bending of leaky-wave forming a sinusoidal envelope inside the graded dielectric slab placed on top of a center-fed slot-line.]{Bending of leaky-wave forming a sinusoidal envelope inside the graded dielectric half-space placed on top of a center-fed slot-line. The solid and dashed lines represent two separate waves generated from the slot-line. The inset presents the refraction of waves due to change in refractive index.}
+\label{fig:graded_characterization}
+\end{figure}
+%
+\begin{figure} [t!]
+\centering
+
+	\begin{overpic}[trim={0 0 0 0},clip,scale=0.6, keepaspectratio=true]{Figures/Chapter5/fig_graded_characterization/DomainField}
+
+	  
+    \put(44,25){\footnotesize Air}
+	\put(44,52){\footnotesize Air}
+	\put(45,9){\footnotesize PML}
+	\put(46,44){\footnotesize Graded}
+	\put(46,41){\footnotesize Dielectric}
+	\put(22,10){\footnotesize $x$}
+	\put(10,22){\footnotesize $y$}
+	\put(7.5,8.5){\footnotesize $z$}
+	
+				\linethickness{.7mm}
+				\put(15.5,44){\line(2,0){10.5}}
+				\put(19.5,46){\footnotesize $\lambda_0$}
+  \end{overpic}
+
+  \caption[Field plot of leaky-wave radiation into a graded dielectric half-space.]{(color inline) Field plot of leaky-wave radiation into a graded dielectric half-space. One wavelength in free-space is indicated by the black line.}
+\label{fig:DomainField}
+\end{figure}
+\subsection{Leaky-wave radiation inside graded-index half-space}
+In order to design the rectangular slab as well as to understand the impact of $H$ in its performance, consider the semi-infinite graded-dielectric half-space placed on top of a slot-line in Fig. \ref{fig:graded_characterization}. The half-space is infinitely stretched in the positive $y$ direction. The slot-line is excited with a transverse line-current at $x=y=0$. The length of the slot-line on either side of the point of excitation is $L$. The refractive index is maximum at $x=0$ and decreases linearly with the distance away from the point of excitation. Two separate leaky wave radiation (dashed and solid line) emits in positive $y$ direction into the half-space from the slot-line, forming a symmetry line at $x=0$. As will be shown in later sections, this symmetry line can be used to reduce simulation domains. The slot-emitted waves goes through continuous refraction and bends away from the normal of incidence, gradually bending towards the denser dielectric region. As the waves continues to refract, at a certain point they achieve an angle greater than critical angle through total internal refraction to entirely change the direction of propagation. The phenomenon is shown inset in Fig. \ref{fig:graded_characterization}. The wave denoted by solid line encounters total internal refraction at point $A$ and changes the direction of propagation towards the denser dielectric region. After point $A$, the wave travels from lower index region to higher index region. The two leaky-wave beams, denoted by dashed and solid lines, intersects at $B$ which is located at $x=0$ in the positive $y$ direction. As it cross point $B$, the waves tend to bend back to the higher index region. The propagation course of the wave appears to be a sinusoidal path. The phenomenon was simulated using COMSOL Multiphysics' RF module for a maximum index $n_{\mathrm{max}} = 5$ and a slab length of $2 \lambda_0$, where $\lambda_0$ is the free space wavelength for $1$ GHz. The generated fields in the simulation domain are presented in Fig. \ref{fig:DomainField}. As observed in Fig. \ref{fig:graded_characterization}, the graded dielectric region is symmetrical in either side of the point of excitation. Perfect electric conductors (PEC) and perfect magnetic conductors (PMC) were used as symmetry planes to reduce the simulation domain and simulate half of the graded dielectric half-space, which is why Fig. \ref{fig:DomainField} presents the graded dielectric medium in the positive $x$ direction. In order to simulate the graded dielectric medium as infinitely extended, material loss (conductivity, $\sigma = 0.025$ S/m) was incorporated. Alternatively, the domain could be terminated with a PML layer; however, a graded PML layer is more complicated to simulate and does not provide perfect matching in COMSOL. The generated leaky-wave radiation inside the medium decayed exponentially due to incorporated material loss, as shown in the inset in Fig. \ref{fig:DomainField}. The fields produce a roughly sinusoidal envelope in its path of propagation.
+
+
+\subsection{Obtaining radiation in free-space}
+In Fig. \ref{fig:graded_characterization}, the wavefront of the slot-generated wave is parallel to the slot-axis at point $A$. If the dielectric half-space is terminated at $A$, at the height of $H_{\mathrm{max}}$, the wave will be normally incident into free-space. Under this condition, broadside radiation can be achieved from the antenna. This scenario was simulated using COMSOL for a maximum index $n_{\mathrm{max}} = 5$ and a slab length of $2 \lambda_0$, where $\lambda_0$ is the free space wavelength for $1$ GHz. One-half of the structure can be simulated around the symmetry line shown in Fig. \ref{fig:graded_characterization}. Using image theory, perfect electric conductors (PECs) and perfect magnetic conductors (PMCs) were implemented where structural symmetry was observed. Simulating half of the overall structure allowed half of the computational resources to be spared. Figure \ref{fig:graded_simulation} represents the 3D simulation domain of the antenna characterization process. The graded blue represents the rectangular slab and the solid dark line underneath is the slot infinite array. Since the $yz$ plane was parallel to the electric field, a PMC plane was used as a symmetry plane at $x=0$ to simulate the double sided slot-line. In contrast, PEC planes were used in the $xy$ plane since it lay normal to the electric field. This allowed an infinite slot to be effectively simulated. The dimensions of the simulation were $L=2\lambda_0$ for a dielectric gradient of $6/\lambda_0$, where $\lambda_0$ represented the free-space wavelength at the designed frequency. Such gradient led to a maximum relative permittivity of $6$ at $x=0$ and minimum relative permittivity $1$ at $x=L$. The height $H$ was varied to find the optimum performance of the antenna over a broad frequency range.
+
+\begin{figure} [t!]
+\centering
+
+	\begin{overpic}[scale=0.4]{Figures/Chapter5/fig_graded_simulation/graded_simulation}
+			\put(-5,54){\footnotesize $H$}
+			\put(23,42){\footnotesize $L$}
+			\put(5,94.5){\footnotesize PML}
+			\put(20,25){\footnotesize air}
+			\put(20,75){\footnotesize air}
+			%\put(60,2){\footnotesize Slot line}
+	        \put(5,2.5){\footnotesize PML}
+			\put(-2,75){\footnotesize \rotatebox{90}{PMC}}
+			\put(-2,17){\footnotesize \rotatebox{90}{PMC}}
+			\put(60,48){\footnotesize $\otimes$}
+			\put(65,48){\footnotesize PEC}
+			
+			
+			\put(-30,30){\vector(2,0){20}}
+			\put(-30,30){\vector(0,2){20}}
+			\put(-10,32){\footnotesize $x$}
+			\put(-30,52){\footnotesize $y$}
+			\put(-32,29){\footnotesize $\otimes$}
+			\put(-35,25){\footnotesize $z$}
+		
+
+	
+  \end{overpic}
+
+  \caption[Simulation domain of the antenna in the preliminary design process.]{Simulation domain of the antenna in the preliminary design process. The blue region represents the graded-dielectric slab. The PEC is directed into-the-page.}
+\label{fig:graded_simulation}
+\end{figure}
+
+Analyzing Fig. \ref{fig:DomainField}, $H_{\mathrm{max}}$ was found to be $0.57 \lambda_0$. If a graded dielectric slab with a height $0.57 \lambda_0$ is placed on top of a slot array, broadside radiation is achieved. Figure \ref{fig:field_broad}a shows that the leaky-wave radiation couples into free-space to produce broadside radiation. Figure \ref{fig:field_broad}b presents the normalized far-field plot. If the graded index dielectric half-space in Fig. \ref{fig:DomainField} is terminated at a height less than $H$, the antenna will generates a double-sided oblique beam.  The scenario is simulated in COMSOL and presented in Fig. \ref{fig:field_oblique}. Figure \ref{fig:field_oblique}a shows the fields plot for a slab height $H = 0.4 \lambda_0$, which is less than $H_{\mathrm{max}}$. The corresponding normalized far-field plot is shown in Fig. \ref{fig:field_oblique}b. The height of the graded index dielectric can be varied to to find a suitable radiation angle from the structure. The length of the graded index dielectric depends on the gradient profile of the graded dielectric. The dielectric slab should be long enough for the fields inside to bend and create the sinusoidal envelope. For higher gradient of the refractive index $H_\mathrm{b}$ will be lower, resulting in a thinner dielectric slab. Different gradients of refractive index, height, and slot dimension need to varied to find out a suitable radiation pattern.
+\begin{figure} [t!]
+\centering
+\noindent
+\hspace*{\fill}%
+  \mbox{\subfloat[]{
+            \begin{overpic}[trim={1.5cm 0cm .5cm .65cm},clip,scale=0.6, keepaspectratio=true]{Figures/Chapter2/fig_broadside/Broadside.png}
+            	
+            	\put(65,0){\vector(2,0){10}}
+            	\put(65,0){\vector(0,2){10}}
+            	\put(77,1){\footnotesize $x$}
+            	\put(65,11.5){\footnotesize $y$}
+            	\put(63,-1){\footnotesize $\otimes$}
+            	\put(60.5,-4.5){\footnotesize $z$}
+            	
+            	
+            	\linethickness{.7mm}
+            	\put(3,30){\line(2,0){10}}
+            	\put(6,32){\footnotesize $\lambda_0$}
+            		
+            	
+            \end{overpic}
+ 		}}
+\hspace*{\fill}%			
+ \mbox{\subfloat[]{
+           \begin{overpic}[trim={2.5cm 1cm 2.5cm 1cm},clip,scale=0.3, keepaspectratio=true]{Figures/Chapter2/fig_broadside/Broadside2.png}
+ 	
+			\end{overpic}
+	   }}
+ 	\hspace*{\fill}%
+ 	
+
+
+  \caption[Broadside radiation from the antenna with a slab height $H= 0.57 \lambda_0$.]{(color inline) Field plot of the leaky-wave antenna with a graded-dielectric slab for a height $H=H_{\mathrm{max}} = 0.57 \lambda_0$ (a) The grid dimensions are in meters. The produced normalized far-field polar plot with a primary beam at broadside (b).}
+\label{fig:field_broad}
+\end{figure}
+
+\begin{figure} [h!]
+\centering
+\noindent
+\hspace*{\fill}%
+  \mbox{\subfloat[]{
+            \begin{overpic}[trim={1.5cm 0cm .5cm .65cm},clip,scale=0.6, keepaspectratio=true]{Figures/Chapter2/fig_broadside/Oblique1.png}
+            	
+            	
+            	\put(65,0){\vector(2,0){10}}
+            	\put(65,0){\vector(0,2){10}}
+            	\put(77,1){\footnotesize $x$}
+            	\put(65,11.5){\footnotesize $y$}
+            	\put(63,-1){\footnotesize $\otimes$}
+            	\put(60.5,-4.5){\footnotesize $z$}
+            	
+            	
+            	\linethickness{.7mm}
+            	\put(3,30){\line(2,0){10}}
+            	\put(6,32){\footnotesize $\lambda_0$}
+            		
+            \end{overpic}
+ 		}}
+\hspace*{\fill}%			
+ \mbox{\subfloat[]{
+           \begin{overpic}[trim={2.5cm 1cm 2.5cm 1cm},clip,scale=0.3, keepaspectratio=true]{Figures/Chapter2/fig_broadside/Oblique2.png}
+ 	
+			\end{overpic}
+	   }}
+ 	\hspace*{\fill}%
+	
+
+  \caption[Oblique radiation from the antenna with a slab height $H= 0.4 \lambda_0$.]{(color inline) Normalized field plot of the leaky-wave antenna with a graded-dielectric slab for a height $H= 0.4 \lambda_0$ (a) The grid dimensions are in meters. The produced normalized far-field polar plot with an oblique beam (b).}
+\label{fig:field_oblique}
+\end{figure}
+
+
+
+\section{Antenna characterization and simulation results}
+
+To achieve proper broadband performance with minimum side-lobes, the antenna needs to be optimized in terms of its dependent variables. Parametric sweeps were carried-out using COMSOL Multiphysics' full-wave simulator to characterize the relationship between the design parameters and the antenna performance by considering one parameter at a time. Figure \ref{fig:inipolar} represents the normalized radiation patterns at different frequencies of the antenna during the preliminary design process. The simulation domain in Fig. \ref{fig:graded_simulation} was simulated using COMSOL Multiphysics' full wave solver. The radiation patterns plots at some frequencies ($1.1f_0$, $1.2f_0$, $1.8f_0$) demonstrate inspiring results with same direction of primary beam and lower secondary lobes. However, the overall performance of the antenna is evidently unsatisfactory. The antenna contains a back lobe even stronger than and equal to the main lobe at $0.8f_0$ (Fig. \ref{fig:inipolar}b) and $1.4f_0$ (Fig. \ref{fig:inipolar}f). The sidelobe level at $0.6f_0$  (Fig. \ref{fig:inipolar}a), $0.8f_0$ (Fig. \ref{fig:inipolar}b, $2f_0$ (Fig. \ref{fig:inipolar}i) are more than $50\%$. In addition, the broadside radiation is unexpectedly large at most frequencies. The presented results belong to the leaky-wave structure with $L=2\lambda_0$, where $\lambda_0$ represents the free-space wavelength at the design frequency. The height was $H=0.32\lambda_0$ and the permittivity gradient was $3$-per-$\lambda_0$, which lead to a maximum relative permittivity of $6$ ($n_{\mathrm{max}}=6$). Other simulations with different values of $H$ and permittivity gradient suggested undesired performance.
+%
+\begin{figure} [p!]
+\pgfplotsset{compat=1.5,
+scale=.42,
+tick label style={font=\small},
+label style={font=\small},
+legend style={font=\small},
+% tick style={thick}
+}
+  \begin{center}
+    \hspace*{\fill}%
+ \input{Figures/Chapter5/fig_polar/2.tex}
+  \hspace*{\fill}%
+  \input{Figures/Chapter5/fig_polar/4.tex}
+    \hspace*{\fill}%
+  \input{Figures/Chapter5/fig_polar/6.tex}
+  \hspace*{\fill}%
+  
+      \hspace*{\fill}%
+  \input{Figures/Chapter5/fig_polar/7.tex}
+  \hspace*{\fill}%
+  \input{Figures/Chapter5/fig_polar/8.tex}
+    \hspace*{\fill}%
+  \input{Figures/Chapter5/fig_polar/10.tex}
+ \hspace*{\fill}%
+ 
+  \hspace*{\fill}%
+  \input{Figures/Chapter5/fig_polar/12.tex}
+    \hspace*{\fill}%
+  \input{Figures/Chapter5/fig_polar/14.tex}
+  \hspace*{\fill}%
+  \input{Figures/Chapter5/fig_polar/16.tex}
+    \hspace*{\fill}%
+  
+ \end{center}
+  \caption{Normalized radiation patterns at different frequency steps of the initially designed leaky-wave antenna.}
+\label{fig:inipolar}
+\end{figure}
+%
+In order to observe the antenna performance for different heights of the slab, the leaky-wave antenna was simulated using COMSOL for a wide range of slab-height. Figure \ref{fig:char_grad} demonstrates the variation of peak field, directivity, beamwidth, angle of radiation (measured from endfire), sidelobe level and broadside field for different heights of the slab at a fixed frequency. It is fairly uncommon to use broadside field strength as a parameter to define an antenna performance. However, as shown in Fig. \ref{fig:inipolar}, the radiation pattern of the linear gradient design at some frequencies consisted of significant level of fields in broadside. Therefore, broadside field strength of the linear gradient design has been studied along with other antenna parameters. The slab as well as the slot length was specified to be $2 \lambda_0$ and the relative permittivity varied linearly from $1$ to $6$ over the slab length. Reflections at the air-dielectric interface is minimum when the dielectric slab is matched to free-space, having equal values of $\epsilon_r$ and $\mu_r$. Since $\epsilon_r$ varied linearly along the interface, the slab was simulated with different values of $\mu_r$. In order to obtain improved matching at the air-interface of the slab, relative permeability ($\mu_r$) was varied from $2$ to $6$. It was expected that higher values of $\mu_r$ would lead to increased coupling of leaky-wave into free-space. 
+
+Figure \ref{fig:char_grad} depicts that the leaky-wave antenna performance is very sensitive to $H$. It can be observed that the angle of radiation varies widely with a slight change of $H$ with high sidelobe levels. Around a height H=$0.4 \lambda_0$ for $\mu = 5$, the sidelobe level is low (around $50\%$), beam is tight (around $20^o$), and radiation angle is stable(around $80^o$); however, the bandwidth is not broad enough. It is also observed that larger values of $\mu$ do not provide improved antenna performance. 
+
+\begin{figure} [p!]
+	\centering
+	\noindent
+	\begin{overpic}[trim={0cm 0 1cm 0cm},clip,scale=0.5, keepaspectratio=true]{Figures/Chapter2/fig_monkey/monkey}
+	\end{overpic}
+	
+	\caption[Characterization of the leaky-wave antenna having a gradient index slab.]{(color inline) Peak field (a), Directivity (b), Beamwidth (c), Angle of radiation (d), Sidelobe Level (e) and Broadside Field (f) of the leaky-wave structure for different heights of the slab. Five graphs represents in each plot represents various permeability ($\mu$) values, for a relative permittivity ($\epsilon_r$) gradient of $3$-per-$\lambda$. }
+	\label{fig:char_grad}
+\end{figure}
+
+\section{Limitation of the design}
+Observing the antenna performance over a broad frequency range, the following points were observed:
+\begin{itemize}
+    \item The antenna did not provide a fixed-beam performance over a wide frequency range. The radiation angle varied unpredictably with the change of frequency, which was not expected. The field plots in Fig. \ref{fig:field_broad}a and Fig \ref{fig:field_oblique}a suggest that reflected waves inside the rectangular slab might be responsible for the irregular radiation pattern from the antenna.
+    \item The side-lobe level (SLL) and back-lobe level (BLL) of the antenna was very large. At some frequencies, the SLL and BLL were small; however, their variation was too unpredictable over a broad bandwidth.
+    \item At broadside, the field strength was too high compared to typical leaky-wave antennas.
+\end{itemize}
+
+The linear gradient index design resulted in unsatisfactory antenna performance. In order to improve the antenna performance more sophisticated refractive index gradient was required to be incorporated into the dielectric slab. Transformation electromagnetics was implemented in the next design process which provided improved results for the leaky-wave antenna. The following chapter describes a \textit{geometric compensation technique} that uses conformal transformation to improve the antenna performance. The following chapter presents the antenna performance that are better than ones presented in this chapter.

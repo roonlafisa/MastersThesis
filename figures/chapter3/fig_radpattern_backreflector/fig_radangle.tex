@@ -1,0 +1,114 @@
+\begin{tikzpicture}
+   \begin{groupplot}[group style={
+                      group name=myplot,
+                      group size= 1 by 5, horizontal sep=2cm, vertical sep=1.0cm},height=3.5cm, width=7.5cm]
+     
+ 
+         \nextgroupplot[ymin=15,
+ymax=55,
+%xlabel={Frequency},
+ylabel={$\theta_{rad}$},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$2$,$3$,$4$,$5$,$6$},
+        scaled x ticks = false,
+]
+
+                \addplot[blue, thick, mark = square]table [col sep=comma]  {Figures/Chapter3/fig_radpattern_backreflector/A_radiation_angle.csv};\label{plots:plot1}
+                \addplot[dgreen, thick, mark = x]table [col sep=comma]  {Figures/Chapter3/fig_radpattern_backreflector/A_radiation_angle_reflector.csv};\label{plots:plot2}
+                \addplot[red, thick, mark=o] table [col sep=comma] {Figures/Chapter3/fig_radpattern_backreflector/A_radiation_angle_uncomp.csv};\label{plots:plot3}
+
+
+
+
+                       
+        \nextgroupplot[ymin=0,
+ymax=30,
+%xlabel={Frequency},
+ylabel={3dB BW},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$2$,$3$,$4$,$5$,$6$},
+        scaled x ticks = false,
+]
+
+
+                \addplot[blue, thick, mark = square] table [col sep=comma] {Figures/Chapter3/fig_radpattern_backreflector/B_3db_beamwidth.csv};
+                \addplot[dgreen, thick, mark = x] table [col sep=comma] {Figures/Chapter3/fig_radpattern_backreflector/B_3db_beamwidth_reflector.csv};
+                \addplot[red, thick, mark=o] table [col sep=comma]  {Figures/Chapter3/fig_radpattern_backreflector/B_3db_beamwidth_uncomp.csv};
+
+
+
+
+        
+        \nextgroupplot[ymin=0,
+ymax=95,
+%xlabel={Frequency},
+ylabel={SLL ($\%$)},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$2$,$3$,$4$,$5$,$6$},
+        scaled x ticks = false,
+]
+
+                \addplot[blue, thick, mark = square]  table [col sep=comma]{Figures/Chapter3/fig_radpattern_backreflector/C_sidelobe.csv};
+                \addplot[dgreen, thick, mark = x]  table [col sep=comma]{Figures/Chapter3/fig_radpattern_backreflector/C_sidelobe_reflector.csv};
+                \addplot[red, thick, mark=o]  table [col sep=comma] {Figures/Chapter3/fig_radpattern_backreflector/C_sidelobe_uncomp.csv};
+
+
+
+ 
+        
+        \nextgroupplot[ymin=30,
+ymax=100,
+%xlabel={Frequency},
+ylabel={BLL ($\%$)},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$2$,$3$,$4$,$5$,$6$},
+        scaled x ticks = false,
+]
+
+                \addplot[blue, thick, mark = square] table [col sep=comma] {Figures/Chapter3/fig_radpattern_backreflector/D_backlobe.csv};
+                \addplot[dgreen, thick, mark = x] table [col sep=comma] {Figures/Chapter3/fig_radpattern_backreflector/D_backlobe_reflector.csv};
+                \addplot[red, thick, mark=o] table [col sep=comma]  {Figures/Chapter3/fig_radpattern_backreflector/D_backlobe_uncomp.csv};
+                
+
+
+
+ 
+ 
+    \nextgroupplot[ymin=0,
+ymax=25,
+xlabel={Frequency ($\times 10^8$)},
+ylabel={Directivity},
+xtick={2e8,3e8,4e8,5e8,6e8},
+xticklabels={$2$,$3$,$4$,$5$,$6$},
+        scaled x ticks = false,
+]
+
+                \addplot[blue, thick, mark = square] table [col sep=comma] {Figures/Chapter3/fig_radpattern_backreflector/E_directivity.csv};
+                \addplot[dgreen, thick, mark = x] table [col sep=comma] {Figures/Chapter3/fig_radpattern_backreflector/E_directivity_reflector.csv};
+                \addplot[red, thick, mark=o] table [col sep=comma]  {Figures/Chapter3/fig_radpattern_backreflector/E_directivity_uncomp.csv};
+                
+            
+                
+    \end{groupplot}
+
+
+   
+   % \path (myplot c1r1.outer north west)% plot in column 1 row 1
+   %       -- node[anchor=south,rotate=90] {throughput}% label midway
+      %    (myplot c1r2.outer south west)% plot in column 1 row 4
+    ;
+% legend
+\path (myplot c1r1.north|-current bounding box.north)-- 
+      coordinate(legendpos)
+      (myplot c1r1.south|-current bounding box.north);
+\matrix[
+    matrix of nodes,
+    anchor=south,
+    draw,
+    inner sep=0.2em,
+    draw
+  ]at([yshift=2ex]legendpos)
+  { \ref{plots:plot1}& Compensated Design &[5pt]\\
+    \ref{plots:plot2}& Compensated Design with Back Reflector &[5pt]\\
+    \ref{plots:plot3}& Initial Design &[5pt]\\};
+\end{tikzpicture}
